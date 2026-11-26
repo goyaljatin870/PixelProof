@@ -1,0 +1,1650 @@
+{
+  "total_minutes": 185.18,
+  "epochs": 6,
+  "domain_finetuned": true,
+  "models": {
+    "mobilenet_v3": {
+      "model_name": "mobilenet_v3",
+      "checkpoint_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_mobilenet_v3.pth",
+      "checkpoint_size_mb": 49.23,
+      "calibrator_pkl_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_mobilenet_v3_calibrator.pkl",
+      "onnx_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_mobilenet_v3.onnx",
+      "onnx_size_mb": 3.54,
+      "train_minutes": 16.94,
+      "domain_finetuned": true,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.9329,
+          "train_acc_pct": 53.61,
+          "val_acc_pct": 69.04,
+          "val_bal_acc_pct": 64.5,
+          "val_real_recall_pct": 58.5,
+          "val_fake_recall_pct": 70.5,
+          "val_roc_auc": 0.7298,
+          "val_f1": 0.8,
+          "epoch_sec": 181.5,
+          "val_dom_roc_auc": 0.7221,
+          "val_dom_bal_acc_pct": 65.37,
+          "val_dom_real_recall_pct": 63.27
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.7063,
+          "train_acc_pct": 68.4,
+          "val_acc_pct": 78.48,
+          "val_bal_acc_pct": 81.01,
+          "val_real_recall_pct": 84.35,
+          "val_fake_recall_pct": 77.66,
+          "val_roc_auc": 0.895,
+          "val_f1": 0.8637,
+          "epoch_sec": 152.3,
+          "val_dom_roc_auc": 0.842,
+          "val_dom_bal_acc_pct": 75.03,
+          "val_dom_real_recall_pct": 75.51
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.6048,
+          "train_acc_pct": 76.0,
+          "val_acc_pct": 88.58,
+          "val_bal_acc_pct": 77.67,
+          "val_real_recall_pct": 63.27,
+          "val_fake_recall_pct": 92.08,
+          "val_roc_auc": 0.9066,
+          "val_f1": 0.934,
+          "epoch_sec": 143.8,
+          "val_dom_roc_auc": 0.845,
+          "val_dom_bal_acc_pct": 75.04,
+          "val_dom_real_recall_pct": 66.67
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.5483,
+          "train_acc_pct": 79.92,
+          "val_acc_pct": 85.76,
+          "val_bal_acc_pct": 83.1,
+          "val_real_recall_pct": 79.59,
+          "val_fake_recall_pct": 86.62,
+          "val_roc_auc": 0.9185,
+          "val_f1": 0.9144,
+          "epoch_sec": 141.8,
+          "val_dom_roc_auc": 0.862,
+          "val_dom_bal_acc_pct": 77.92,
+          "val_dom_real_recall_pct": 79.59
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.5412,
+          "train_acc_pct": 80.76,
+          "val_acc_pct": 88.91,
+          "val_bal_acc_pct": 81.67,
+          "val_real_recall_pct": 72.11,
+          "val_fake_recall_pct": 91.23,
+          "val_roc_auc": 0.9183,
+          "val_f1": 0.9353,
+          "epoch_sec": 146.8,
+          "val_dom_roc_auc": 0.8652,
+          "val_dom_bal_acc_pct": 75.86,
+          "val_dom_real_recall_pct": 64.63
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.5289,
+          "train_acc_pct": 81.02,
+          "val_acc_pct": 89.9,
+          "val_bal_acc_pct": 80.48,
+          "val_real_recall_pct": 68.03,
+          "val_fake_recall_pct": 92.93,
+          "val_roc_auc": 0.9239,
+          "val_f1": 0.9417,
+          "epoch_sec": 140.7,
+          "val_dom_roc_auc": 0.866,
+          "val_dom_bal_acc_pct": 75.2,
+          "val_dom_real_recall_pct": 64.63
+        }
+      ],
+      "val_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 89.9,
+        "balanced_accuracy_pct": 80.48,
+        "roc_auc": 0.9239,
+        "f1": 0.9417,
+        "real_recall_pct": 68.03,
+        "fake_recall_pct": 92.93,
+        "confusion_matrix": {
+          "tn": 100,
+          "fp": 47,
+          "fn": 75,
+          "tp": 986
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 100.0,
+          "Deepfakes": 93.2,
+          "Face2Face": 89.12,
+          "FaceShifter": 92.52,
+          "FaceSwap": 89.93,
+          "NeuralTextures": 83.67,
+          "original": 68.03
+        }
+      },
+      "test_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 87.64,
+        "balanced_accuracy_pct": 77.32,
+        "roc_auc": 0.9046,
+        "f1": 0.9274,
+        "real_recall_pct": 63.09,
+        "fake_recall_pct": 91.55,
+        "confusion_matrix": {
+          "tn": 94,
+          "fp": 55,
+          "fn": 79,
+          "tp": 856
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 100.0,
+          "Deepfakes": 95.97,
+          "Face2Face": 85.23,
+          "FaceShifter": 93.29,
+          "FaceSwap": 89.36,
+          "NeuralTextures": 82.55,
+          "original": 63.09
+        }
+      },
+      "test_metrics_calibrated": {
+        "threshold": 0.68,
+        "accuracy_pct": 81.64,
+        "balanced_accuracy_pct": 82.02,
+        "roc_auc": 0.9046,
+        "f1": 0.8845,
+        "real_recall_pct": 82.55,
+        "fake_recall_pct": 81.5,
+        "confusion_matrix": {
+          "tn": 123,
+          "fp": 26,
+          "fn": 173,
+          "tp": 762
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 98.99,
+          "Deepfakes": 88.59,
+          "Face2Face": 69.8,
+          "FaceShifter": 79.19,
+          "FaceSwap": 83.69,
+          "NeuralTextures": 63.09,
+          "original": 82.55
+        }
+      },
+      "test_domain_metrics": {
+        "raw_05": {
+          "threshold": 0.5,
+          "accuracy_pct": 81.83,
+          "balanced_accuracy_pct": 72.26,
+          "roc_auc": 0.8325,
+          "f1": 0.8903,
+          "real_recall_pct": 59.06,
+          "fake_recall_pct": 85.45,
+          "confusion_matrix": {
+            "tn": 88,
+            "fp": 61,
+            "fn": 136,
+            "tp": 799
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 97.98,
+            "Deepfakes": 87.92,
+            "Face2Face": 81.88,
+            "FaceShifter": 85.23,
+            "FaceSwap": 87.23,
+            "NeuralTextures": 68.46,
+            "original": 59.06
+          }
+        },
+        "calibrated": {
+          "threshold": 0.68,
+          "accuracy_pct": 71.59,
+          "balanced_accuracy_pct": 75.07,
+          "roc_auc": 0.8325,
+          "f1": 0.8101,
+          "real_recall_pct": 79.87,
+          "fake_recall_pct": 70.27,
+          "confusion_matrix": {
+            "tn": 119,
+            "fp": 30,
+            "fn": 278,
+            "tp": 657
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 94.44,
+            "Deepfakes": 77.18,
+            "Face2Face": 60.4,
+            "FaceShifter": 64.43,
+            "FaceSwap": 72.34,
+            "NeuralTextures": 44.97,
+            "original": 79.87
+          }
+        }
+      },
+      "contextual_misinfo_test": {
+        "deceptive_claim_class2_recall_pct": 84.56,
+        "benign_claim_class0_acc_pct": 63.09,
+        "n_real_clips": 149
+      }
+    },
+    "temporal_lstm": {
+      "model_name": "temporal_lstm",
+      "checkpoint_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_temporal_lstm.pth",
+      "checkpoint_size_mb": 62.67,
+      "calibrator_pkl_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_temporal_lstm_calibrator.pkl",
+      "onnx_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_temporal_lstm.onnx",
+      "onnx_size_mb": 3.45,
+      "train_minutes": 15.26,
+      "domain_finetuned": true,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.9324,
+          "train_acc_pct": 54.12,
+          "val_acc_pct": 87.83,
+          "val_bal_acc_pct": 50.0,
+          "val_real_recall_pct": 0.0,
+          "val_fake_recall_pct": 100.0,
+          "val_roc_auc": 0.7409,
+          "val_f1": 0.9352,
+          "epoch_sec": 146.6,
+          "val_dom_roc_auc": 0.7105,
+          "val_dom_bal_acc_pct": 50.0,
+          "val_dom_real_recall_pct": 0.0
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.7019,
+          "train_acc_pct": 69.38,
+          "val_acc_pct": 78.31,
+          "val_bal_acc_pct": 74.76,
+          "val_real_recall_pct": 70.07,
+          "val_fake_recall_pct": 79.45,
+          "val_roc_auc": 0.85,
+          "val_f1": 0.8655,
+          "epoch_sec": 143.3,
+          "val_dom_roc_auc": 0.8161,
+          "val_dom_bal_acc_pct": 70.49,
+          "val_dom_real_recall_pct": 58.5
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.6133,
+          "train_acc_pct": 75.25,
+          "val_acc_pct": 80.88,
+          "val_bal_acc_pct": 80.32,
+          "val_real_recall_pct": 79.59,
+          "val_fake_recall_pct": 81.06,
+          "val_roc_auc": 0.8872,
+          "val_f1": 0.8816,
+          "epoch_sec": 139.7,
+          "val_dom_roc_auc": 0.84,
+          "val_dom_bal_acc_pct": 76.13,
+          "val_dom_real_recall_pct": 79.59
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.5499,
+          "train_acc_pct": 80.46,
+          "val_acc_pct": 90.31,
+          "val_bal_acc_pct": 70.17,
+          "val_real_recall_pct": 43.54,
+          "val_fake_recall_pct": 96.8,
+          "val_roc_auc": 0.896,
+          "val_f1": 0.9461,
+          "epoch_sec": 138.9,
+          "val_dom_roc_auc": 0.8499,
+          "val_dom_bal_acc_pct": 61.71,
+          "val_dom_real_recall_pct": 26.53
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.5277,
+          "train_acc_pct": 80.97,
+          "val_acc_pct": 78.39,
+          "val_bal_acc_pct": 81.25,
+          "val_real_recall_pct": 85.03,
+          "val_fake_recall_pct": 77.47,
+          "val_roc_auc": 0.8981,
+          "val_f1": 0.863,
+          "epoch_sec": 138.3,
+          "val_dom_roc_auc": 0.8535,
+          "val_dom_bal_acc_pct": 76.39,
+          "val_dom_real_recall_pct": 80.95
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.5396,
+          "train_acc_pct": 81.42,
+          "val_acc_pct": 80.3,
+          "val_bal_acc_pct": 80.58,
+          "val_real_recall_pct": 80.95,
+          "val_fake_recall_pct": 80.21,
+          "val_roc_auc": 0.8986,
+          "val_f1": 0.8773,
+          "epoch_sec": 138.5,
+          "val_dom_roc_auc": 0.8525,
+          "val_dom_bal_acc_pct": 76.66,
+          "val_dom_real_recall_pct": 80.27
+        }
+      ],
+      "val_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 78.39,
+        "balanced_accuracy_pct": 81.25,
+        "roc_auc": 0.8981,
+        "f1": 0.863,
+        "real_recall_pct": 85.03,
+        "fake_recall_pct": 77.47,
+        "confusion_matrix": {
+          "tn": 125,
+          "fp": 22,
+          "fn": 239,
+          "tp": 822
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 98.8,
+          "Deepfakes": 85.03,
+          "Face2Face": 63.27,
+          "FaceShifter": 68.71,
+          "FaceSwap": 65.47,
+          "NeuralTextures": 55.78,
+          "original": 85.03
+        }
+      },
+      "test_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 77.21,
+        "balanced_accuracy_pct": 82.28,
+        "roc_auc": 0.8958,
+        "f1": 0.8508,
+        "real_recall_pct": 89.26,
+        "fake_recall_pct": 75.29,
+        "confusion_matrix": {
+          "tn": 133,
+          "fp": 16,
+          "fn": 231,
+          "tp": 704
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 99.49,
+          "Deepfakes": 85.23,
+          "Face2Face": 63.76,
+          "FaceShifter": 72.48,
+          "FaceSwap": 66.67,
+          "NeuralTextures": 55.7,
+          "original": 89.26
+        }
+      },
+      "test_metrics_calibrated": {
+        "threshold": 0.43,
+        "accuracy_pct": 79.43,
+        "balanced_accuracy_pct": 82.15,
+        "roc_auc": 0.8958,
+        "f1": 0.868,
+        "real_recall_pct": 85.91,
+        "fake_recall_pct": 78.4,
+        "confusion_matrix": {
+          "tn": 128,
+          "fp": 21,
+          "fn": 202,
+          "tp": 733
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 99.49,
+          "Deepfakes": 87.92,
+          "Face2Face": 67.79,
+          "FaceShifter": 77.85,
+          "FaceSwap": 70.92,
+          "NeuralTextures": 59.06,
+          "original": 85.91
+        }
+      },
+      "test_domain_metrics": {
+        "raw_05": {
+          "threshold": 0.5,
+          "accuracy_pct": 69.28,
+          "balanced_accuracy_pct": 74.29,
+          "roc_auc": 0.8269,
+          "f1": 0.791,
+          "real_recall_pct": 81.21,
+          "fake_recall_pct": 67.38,
+          "confusion_matrix": {
+            "tn": 121,
+            "fp": 28,
+            "fn": 305,
+            "tp": 630
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 95.45,
+            "Deepfakes": 74.5,
+            "Face2Face": 55.03,
+            "FaceShifter": 59.06,
+            "FaceSwap": 64.54,
+            "NeuralTextures": 46.31,
+            "original": 81.21
+          }
+        },
+        "calibrated": {
+          "threshold": 0.43,
+          "accuracy_pct": 73.8,
+          "balanced_accuracy_pct": 74.94,
+          "roc_auc": 0.8269,
+          "f1": 0.8285,
+          "real_recall_pct": 76.51,
+          "fake_recall_pct": 73.37,
+          "confusion_matrix": {
+            "tn": 114,
+            "fp": 35,
+            "fn": 249,
+            "tp": 686
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 96.97,
+            "Deepfakes": 79.19,
+            "Face2Face": 63.76,
+            "FaceShifter": 67.79,
+            "FaceSwap": 69.5,
+            "NeuralTextures": 55.03,
+            "original": 76.51
+          }
+        }
+      },
+      "contextual_misinfo_test": {
+        "deceptive_claim_class2_recall_pct": 91.95,
+        "benign_claim_class0_acc_pct": 88.59,
+        "n_real_clips": 149
+      }
+    },
+    "mesonet": {
+      "model_name": "mesonet",
+      "checkpoint_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_mesonet.pth",
+      "checkpoint_size_mb": 45.56,
+      "calibrator_pkl_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_mesonet_calibrator.pkl",
+      "onnx_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_mesonet.onnx",
+      "onnx_size_mb": 3.45,
+      "train_minutes": 18.24,
+      "domain_finetuned": true,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.9507,
+          "train_acc_pct": 46.67,
+          "val_acc_pct": 80.13,
+          "val_bal_acc_pct": 50.6,
+          "val_real_recall_pct": 11.56,
+          "val_fake_recall_pct": 89.63,
+          "val_roc_auc": 0.537,
+          "val_f1": 0.888,
+          "epoch_sec": 174.6,
+          "val_dom_roc_auc": 0.5,
+          "val_dom_bal_acc_pct": 48.79,
+          "val_dom_real_recall_pct": 16.33
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.8078,
+          "train_acc_pct": 54.36,
+          "val_acc_pct": 79.06,
+          "val_bal_acc_pct": 52.92,
+          "val_real_recall_pct": 18.37,
+          "val_fake_recall_pct": 87.46,
+          "val_roc_auc": 0.628,
+          "val_f1": 0.88,
+          "epoch_sec": 169.6,
+          "val_dom_roc_auc": 0.632,
+          "val_dom_bal_acc_pct": 54.01,
+          "val_dom_real_recall_pct": 19.05
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.7912,
+          "train_acc_pct": 55.05,
+          "val_acc_pct": 80.22,
+          "val_bal_acc_pct": 55.04,
+          "val_real_recall_pct": 21.77,
+          "val_fake_recall_pct": 88.31,
+          "val_roc_auc": 0.6474,
+          "val_f1": 0.8869,
+          "epoch_sec": 170.6,
+          "val_dom_roc_auc": 0.6265,
+          "val_dom_bal_acc_pct": 53.01,
+          "val_dom_real_recall_pct": 12.24
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.7706,
+          "train_acc_pct": 58.22,
+          "val_acc_pct": 72.19,
+          "val_bal_acc_pct": 60.14,
+          "val_real_recall_pct": 44.22,
+          "val_fake_recall_pct": 76.06,
+          "val_roc_auc": 0.68,
+          "val_f1": 0.8277,
+          "epoch_sec": 171.2,
+          "val_dom_roc_auc": 0.6747,
+          "val_dom_bal_acc_pct": 56.48,
+          "val_dom_real_recall_pct": 26.53
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.762,
+          "train_acc_pct": 58.2,
+          "val_acc_pct": 75.75,
+          "val_bal_acc_pct": 60.7,
+          "val_real_recall_pct": 40.82,
+          "val_fake_recall_pct": 80.58,
+          "val_roc_auc": 0.6864,
+          "val_f1": 0.8537,
+          "epoch_sec": 168.3,
+          "val_dom_roc_auc": 0.662,
+          "val_dom_bal_acc_pct": 54.97,
+          "val_dom_real_recall_pct": 23.13
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.7725,
+          "train_acc_pct": 58.56,
+          "val_acc_pct": 75.41,
+          "val_bal_acc_pct": 60.22,
+          "val_real_recall_pct": 40.14,
+          "val_fake_recall_pct": 80.3,
+          "val_roc_auc": 0.6921,
+          "val_f1": 0.8516,
+          "epoch_sec": 170.0,
+          "val_dom_roc_auc": 0.6762,
+          "val_dom_bal_acc_pct": 55.5,
+          "val_dom_real_recall_pct": 21.09
+        }
+      ],
+      "val_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 75.41,
+        "balanced_accuracy_pct": 60.22,
+        "roc_auc": 0.6921,
+        "f1": 0.8516,
+        "real_recall_pct": 40.14,
+        "fake_recall_pct": 80.3,
+        "confusion_matrix": {
+          "tn": 59,
+          "fp": 88,
+          "fn": 209,
+          "tp": 852
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 98.8,
+          "Deepfakes": 79.59,
+          "Face2Face": 67.35,
+          "FaceShifter": 73.47,
+          "FaceSwap": 70.5,
+          "NeuralTextures": 68.03,
+          "original": 40.14
+        }
+      },
+      "test_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 73.43,
+        "balanced_accuracy_pct": 56.67,
+        "roc_auc": 0.641,
+        "f1": 0.8382,
+        "real_recall_pct": 33.56,
+        "fake_recall_pct": 79.79,
+        "confusion_matrix": {
+          "tn": 50,
+          "fp": 99,
+          "fn": 189,
+          "tp": 746
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 100.0,
+          "Deepfakes": 77.85,
+          "Face2Face": 70.47,
+          "FaceShifter": 78.52,
+          "FaceSwap": 73.05,
+          "NeuralTextures": 71.81,
+          "original": 33.56
+        }
+      },
+      "test_metrics_calibrated": {
+        "threshold": 0.5,
+        "accuracy_pct": 42.44,
+        "balanced_accuracy_pct": 59.86,
+        "roc_auc": 0.641,
+        "f1": 0.5178,
+        "real_recall_pct": 83.89,
+        "fake_recall_pct": 35.83,
+        "confusion_matrix": {
+          "tn": 125,
+          "fp": 24,
+          "fn": 600,
+          "tp": 335
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 96.97,
+          "Deepfakes": 23.49,
+          "Face2Face": 18.12,
+          "FaceShifter": 22.15,
+          "FaceSwap": 15.6,
+          "NeuralTextures": 17.45,
+          "original": 83.89
+        }
+      },
+      "test_domain_metrics": {
+        "raw_05": {
+          "threshold": 0.5,
+          "accuracy_pct": 80.44,
+          "balanced_accuracy_pct": 54.81,
+          "roc_auc": 0.6255,
+          "f1": 0.8883,
+          "real_recall_pct": 19.46,
+          "fake_recall_pct": 90.16,
+          "confusion_matrix": {
+            "tn": 29,
+            "fp": 120,
+            "fn": 92,
+            "tp": 843
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 100.0,
+            "Deepfakes": 90.6,
+            "Face2Face": 84.56,
+            "FaceShifter": 89.26,
+            "FaceSwap": 86.52,
+            "NeuralTextures": 86.58,
+            "original": 19.46
+          }
+        },
+        "calibrated": {
+          "threshold": 0.5,
+          "accuracy_pct": 43.17,
+          "balanced_accuracy_pct": 58.88,
+          "roc_auc": 0.6255,
+          "f1": 0.5305,
+          "real_recall_pct": 80.54,
+          "fake_recall_pct": 37.22,
+          "confusion_matrix": {
+            "tn": 120,
+            "fp": 29,
+            "fn": 587,
+            "tp": 348
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 94.44,
+            "Deepfakes": 22.15,
+            "Face2Face": 22.82,
+            "FaceShifter": 24.16,
+            "FaceSwap": 18.44,
+            "NeuralTextures": 21.48,
+            "original": 80.54
+          }
+        }
+      },
+      "contextual_misinfo_test": {
+        "deceptive_claim_class2_recall_pct": 100.0,
+        "benign_claim_class0_acc_pct": 33.56,
+        "n_real_clips": 149
+      }
+    },
+    "resnet50": {
+      "model_name": "resnet50",
+      "checkpoint_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_resnet50.pth",
+      "checkpoint_size_mb": 144.21,
+      "calibrator_pkl_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_resnet50_calibrator.pkl",
+      "onnx_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_resnet50.onnx",
+      "onnx_size_mb": 4.2,
+      "train_minutes": 40.02,
+      "domain_finetuned": true,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0188,
+          "train_acc_pct": 46.82,
+          "val_acc_pct": 87.09,
+          "val_bal_acc_pct": 54.85,
+          "val_real_recall_pct": 12.24,
+          "val_fake_recall_pct": 97.46,
+          "val_roc_auc": 0.772,
+          "val_f1": 0.9299,
+          "epoch_sec": 383.1,
+          "val_dom_roc_auc": 0.6768,
+          "val_dom_bal_acc_pct": 52.35,
+          "val_dom_real_recall_pct": 6.12
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.7721,
+          "train_acc_pct": 65.59,
+          "val_acc_pct": 87.83,
+          "val_bal_acc_pct": 76.96,
+          "val_real_recall_pct": 62.59,
+          "val_fake_recall_pct": 91.33,
+          "val_roc_auc": 0.9036,
+          "val_f1": 0.9295,
+          "epoch_sec": 381.5,
+          "val_dom_roc_auc": 0.7951,
+          "val_dom_bal_acc_pct": 67.0,
+          "val_dom_real_recall_pct": 46.26
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.6932,
+          "train_acc_pct": 71.42,
+          "val_acc_pct": 90.07,
+          "val_bal_acc_pct": 66.8,
+          "val_real_recall_pct": 36.05,
+          "val_fake_recall_pct": 97.55,
+          "val_roc_auc": 0.9183,
+          "val_f1": 0.9452,
+          "epoch_sec": 381.4,
+          "val_dom_roc_auc": 0.8425,
+          "val_dom_bal_acc_pct": 62.49,
+          "val_dom_real_recall_pct": 28.57
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.6201,
+          "train_acc_pct": 77.52,
+          "val_acc_pct": 89.74,
+          "val_bal_acc_pct": 87.12,
+          "val_real_recall_pct": 83.67,
+          "val_fake_recall_pct": 90.57,
+          "val_roc_auc": 0.9492,
+          "val_f1": 0.9394,
+          "epoch_sec": 377.9,
+          "val_dom_roc_auc": 0.8695,
+          "val_dom_bal_acc_pct": 78.5,
+          "val_dom_real_recall_pct": 74.15
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.601,
+          "train_acc_pct": 79.97,
+          "val_acc_pct": 90.31,
+          "val_bal_acc_pct": 89.51,
+          "val_real_recall_pct": 88.44,
+          "val_fake_recall_pct": 90.57,
+          "val_roc_auc": 0.9606,
+          "val_f1": 0.9426,
+          "epoch_sec": 378.9,
+          "val_dom_roc_auc": 0.8789,
+          "val_dom_bal_acc_pct": 79.13,
+          "val_dom_real_recall_pct": 72.11
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.5798,
+          "train_acc_pct": 80.82,
+          "val_acc_pct": 91.39,
+          "val_bal_acc_pct": 88.07,
+          "val_real_recall_pct": 83.67,
+          "val_fake_recall_pct": 92.46,
+          "val_roc_auc": 0.9541,
+          "val_f1": 0.9497,
+          "epoch_sec": 377.6,
+          "val_dom_roc_auc": 0.8896,
+          "val_dom_bal_acc_pct": 79.18,
+          "val_dom_real_recall_pct": 69.39
+        }
+      ],
+      "val_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 91.39,
+        "balanced_accuracy_pct": 88.07,
+        "roc_auc": 0.9541,
+        "f1": 0.9497,
+        "real_recall_pct": 83.67,
+        "fake_recall_pct": 92.46,
+        "confusion_matrix": {
+          "tn": 123,
+          "fp": 24,
+          "fn": 80,
+          "tp": 981
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 99.1,
+          "Deepfakes": 91.16,
+          "Face2Face": 94.56,
+          "FaceShifter": 93.2,
+          "FaceSwap": 92.81,
+          "NeuralTextures": 75.51,
+          "original": 83.67
+        }
+      },
+      "test_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 91.14,
+        "balanced_accuracy_pct": 87.53,
+        "roc_auc": 0.9516,
+        "f1": 0.9474,
+        "real_recall_pct": 82.55,
+        "fake_recall_pct": 92.51,
+        "confusion_matrix": {
+          "tn": 123,
+          "fp": 26,
+          "fn": 70,
+          "tp": 865
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 99.49,
+          "Deepfakes": 92.62,
+          "Face2Face": 97.99,
+          "FaceShifter": 89.93,
+          "FaceSwap": 95.04,
+          "NeuralTextures": 77.85,
+          "original": 82.55
+        }
+      },
+      "test_metrics_calibrated": {
+        "threshold": 0.69,
+        "accuracy_pct": 86.16,
+        "balanced_accuracy_pct": 88.59,
+        "roc_auc": 0.9516,
+        "f1": 0.914,
+        "real_recall_pct": 91.95,
+        "fake_recall_pct": 85.24,
+        "confusion_matrix": {
+          "tn": 137,
+          "fp": 12,
+          "fn": 138,
+          "tp": 797
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 95.96,
+          "Deepfakes": 86.58,
+          "Face2Face": 90.6,
+          "FaceShifter": 81.21,
+          "FaceSwap": 90.07,
+          "NeuralTextures": 63.76,
+          "original": 91.95
+        }
+      },
+      "test_domain_metrics": {
+        "raw_05": {
+          "threshold": 0.5,
+          "accuracy_pct": 85.7,
+          "balanced_accuracy_pct": 77.32,
+          "roc_auc": 0.8645,
+          "f1": 0.9147,
+          "real_recall_pct": 65.77,
+          "fake_recall_pct": 88.88,
+          "confusion_matrix": {
+            "tn": 98,
+            "fp": 51,
+            "fn": 104,
+            "tp": 831
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 97.47,
+            "Deepfakes": 88.59,
+            "Face2Face": 91.28,
+            "FaceShifter": 89.26,
+            "FaceSwap": 85.11,
+            "NeuralTextures": 78.52,
+            "original": 65.77
+          }
+        },
+        "calibrated": {
+          "threshold": 0.69,
+          "accuracy_pct": 76.38,
+          "balanced_accuracy_pct": 78.98,
+          "roc_auc": 0.8645,
+          "f1": 0.8463,
+          "real_recall_pct": 82.55,
+          "fake_recall_pct": 75.4,
+          "confusion_matrix": {
+            "tn": 123,
+            "fp": 26,
+            "fn": 230,
+            "tp": 705
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 91.41,
+            "Deepfakes": 73.83,
+            "Face2Face": 83.22,
+            "FaceShifter": 66.44,
+            "FaceSwap": 70.92,
+            "NeuralTextures": 61.07,
+            "original": 82.55
+          }
+        }
+      },
+      "contextual_misinfo_test": {
+        "deceptive_claim_class2_recall_pct": 89.93,
+        "benign_claim_class0_acc_pct": 82.55,
+        "n_real_clips": 149
+      }
+    },
+    "xception": {
+      "model_name": "xception",
+      "checkpoint_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_xception.pth",
+      "checkpoint_size_mb": 133.89,
+      "calibrator_pkl_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_xception_calibrator.pkl",
+      "onnx_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_xception.onnx",
+      "onnx_size_mb": 4.2,
+      "train_minutes": 30.25,
+      "domain_finetuned": true,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0837,
+          "train_acc_pct": 42.4,
+          "val_acc_pct": 87.91,
+          "val_bal_acc_pct": 50.63,
+          "val_real_recall_pct": 1.36,
+          "val_fake_recall_pct": 99.91,
+          "val_roc_auc": 0.7717,
+          "val_f1": 0.9356,
+          "epoch_sec": 293.9,
+          "val_dom_roc_auc": 0.7276,
+          "val_dom_bal_acc_pct": 49.91,
+          "val_dom_real_recall_pct": 0.0
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.8008,
+          "train_acc_pct": 63.75,
+          "val_acc_pct": 79.64,
+          "val_bal_acc_pct": 70.24,
+          "val_real_recall_pct": 57.82,
+          "val_fake_recall_pct": 82.66,
+          "val_roc_auc": 0.8247,
+          "val_f1": 0.877,
+          "epoch_sec": 285.3,
+          "val_dom_roc_auc": 0.7998,
+          "val_dom_bal_acc_pct": 66.64,
+          "val_dom_real_recall_pct": 44.22
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.7298,
+          "train_acc_pct": 68.67,
+          "val_acc_pct": 70.61,
+          "val_bal_acc_pct": 80.34,
+          "val_real_recall_pct": 93.2,
+          "val_fake_recall_pct": 67.48,
+          "val_roc_auc": 0.9078,
+          "val_f1": 0.8013,
+          "epoch_sec": 285.4,
+          "val_dom_roc_auc": 0.8582,
+          "val_dom_bal_acc_pct": 76.93,
+          "val_dom_real_recall_pct": 91.84
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.6712,
+          "train_acc_pct": 73.69,
+          "val_acc_pct": 79.88,
+          "val_bal_acc_pct": 82.4,
+          "val_real_recall_pct": 85.71,
+          "val_fake_recall_pct": 79.08,
+          "val_roc_auc": 0.9061,
+          "val_f1": 0.8735,
+          "epoch_sec": 286.5,
+          "val_dom_roc_auc": 0.8564,
+          "val_dom_bal_acc_pct": 78.32,
+          "val_dom_real_recall_pct": 90.48
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.6468,
+          "train_acc_pct": 75.62,
+          "val_acc_pct": 83.36,
+          "val_bal_acc_pct": 86.13,
+          "val_real_recall_pct": 89.8,
+          "val_fake_recall_pct": 82.47,
+          "val_roc_auc": 0.9317,
+          "val_f1": 0.897,
+          "epoch_sec": 291.0,
+          "val_dom_roc_auc": 0.8777,
+          "val_dom_bal_acc_pct": 78.85,
+          "val_dom_real_recall_pct": 81.63
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.6137,
+          "train_acc_pct": 78.74,
+          "val_acc_pct": 83.86,
+          "val_bal_acc_pct": 86.42,
+          "val_real_recall_pct": 89.8,
+          "val_fake_recall_pct": 83.03,
+          "val_roc_auc": 0.9318,
+          "val_f1": 0.9004,
+          "epoch_sec": 289.1,
+          "val_dom_roc_auc": 0.8742,
+          "val_dom_bal_acc_pct": 79.65,
+          "val_dom_real_recall_pct": 85.03
+        }
+      ],
+      "val_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 83.36,
+        "balanced_accuracy_pct": 86.13,
+        "roc_auc": 0.9317,
+        "f1": 0.897,
+        "real_recall_pct": 89.8,
+        "fake_recall_pct": 82.47,
+        "confusion_matrix": {
+          "tn": 132,
+          "fp": 15,
+          "fn": 186,
+          "tp": 875
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 99.1,
+          "Deepfakes": 80.95,
+          "Face2Face": 82.99,
+          "FaceShifter": 73.47,
+          "FaceSwap": 76.26,
+          "NeuralTextures": 60.54,
+          "original": 89.8
+        }
+      },
+      "test_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 82.56,
+        "balanced_accuracy_pct": 83.97,
+        "roc_auc": 0.9203,
+        "f1": 0.8903,
+        "real_recall_pct": 85.91,
+        "fake_recall_pct": 82.03,
+        "confusion_matrix": {
+          "tn": 128,
+          "fp": 21,
+          "fn": 168,
+          "tp": 767
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 100.0,
+          "Deepfakes": 87.25,
+          "Face2Face": 85.23,
+          "FaceShifter": 72.48,
+          "FaceSwap": 80.85,
+          "NeuralTextures": 60.4,
+          "original": 85.91
+        }
+      },
+      "test_metrics_calibrated": {
+        "threshold": 0.44,
+        "accuracy_pct": 84.5,
+        "balanced_accuracy_pct": 84.25,
+        "roc_auc": 0.9203,
+        "f1": 0.904,
+        "real_recall_pct": 83.89,
+        "fake_recall_pct": 84.6,
+        "confusion_matrix": {
+          "tn": 125,
+          "fp": 24,
+          "fn": 144,
+          "tp": 791
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 100.0,
+          "Deepfakes": 88.59,
+          "Face2Face": 88.59,
+          "FaceShifter": 77.18,
+          "FaceSwap": 82.27,
+          "NeuralTextures": 65.77,
+          "original": 83.89
+        }
+      },
+      "test_domain_metrics": {
+        "raw_05": {
+          "threshold": 0.5,
+          "accuracy_pct": 76.48,
+          "balanced_accuracy_pct": 76.21,
+          "roc_auc": 0.8498,
+          "f1": 0.8488,
+          "real_recall_pct": 75.84,
+          "fake_recall_pct": 76.58,
+          "confusion_matrix": {
+            "tn": 113,
+            "fp": 36,
+            "fn": 219,
+            "tp": 716
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 99.49,
+            "Deepfakes": 81.21,
+            "Face2Face": 76.51,
+            "FaceShifter": 67.79,
+            "FaceSwap": 69.5,
+            "NeuralTextures": 57.05,
+            "original": 75.84
+          }
+        },
+        "calibrated": {
+          "threshold": 0.44,
+          "accuracy_pct": 78.14,
+          "balanced_accuracy_pct": 76.61,
+          "roc_auc": 0.8498,
+          "f1": 0.8613,
+          "real_recall_pct": 74.5,
+          "fake_recall_pct": 78.72,
+          "confusion_matrix": {
+            "tn": 111,
+            "fp": 38,
+            "fn": 199,
+            "tp": 736
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 99.49,
+            "Deepfakes": 81.88,
+            "Face2Face": 79.87,
+            "FaceShifter": 70.47,
+            "FaceSwap": 72.34,
+            "NeuralTextures": 61.07,
+            "original": 74.5
+          }
+        }
+      },
+      "contextual_misinfo_test": {
+        "deceptive_claim_class2_recall_pct": 96.64,
+        "benign_claim_class0_acc_pct": 85.91,
+        "n_real_clips": 149
+      }
+    },
+    "efficientnet_v2": {
+      "model_name": "efficientnet_v2",
+      "checkpoint_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_efficientnet_v2.pth",
+      "checkpoint_size_mb": 124.45,
+      "calibrator_pkl_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_efficientnet_v2_calibrator.pkl",
+      "onnx_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_efficientnet_v2.onnx",
+      "onnx_size_mb": 4.58,
+      "train_minutes": 42.33,
+      "domain_finetuned": true,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.0172,
+          "train_acc_pct": 48.96,
+          "val_acc_pct": 52.24,
+          "val_bal_acc_pct": 68.41,
+          "val_real_recall_pct": 89.8,
+          "val_fake_recall_pct": 47.03,
+          "val_roc_auc": 0.7751,
+          "val_f1": 0.6337,
+          "epoch_sec": 412.7,
+          "val_dom_roc_auc": 0.7013,
+          "val_dom_bal_acc_pct": 62.19,
+          "val_dom_real_recall_pct": 86.39
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.7954,
+          "train_acc_pct": 64.75,
+          "val_acc_pct": 70.7,
+          "val_bal_acc_pct": 77.75,
+          "val_real_recall_pct": 87.07,
+          "val_fake_recall_pct": 68.43,
+          "val_roc_auc": 0.8627,
+          "val_f1": 0.804,
+          "epoch_sec": 406.2,
+          "val_dom_roc_auc": 0.7957,
+          "val_dom_bal_acc_pct": 70.83,
+          "val_dom_real_recall_pct": 62.59
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.7097,
+          "train_acc_pct": 71.82,
+          "val_acc_pct": 79.88,
+          "val_bal_acc_pct": 80.64,
+          "val_real_recall_pct": 81.63,
+          "val_fake_recall_pct": 79.64,
+          "val_roc_auc": 0.8899,
+          "val_f1": 0.8743,
+          "epoch_sec": 408.6,
+          "val_dom_roc_auc": 0.8329,
+          "val_dom_bal_acc_pct": 70.19,
+          "val_dom_real_recall_pct": 51.02
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.6426,
+          "train_acc_pct": 76.47,
+          "val_acc_pct": 82.86,
+          "val_bal_acc_pct": 87.31,
+          "val_real_recall_pct": 93.2,
+          "val_fake_recall_pct": 81.43,
+          "val_roc_auc": 0.942,
+          "val_f1": 0.893,
+          "epoch_sec": 405.2,
+          "val_dom_roc_auc": 0.8775,
+          "val_dom_bal_acc_pct": 78.9,
+          "val_dom_real_recall_pct": 72.79
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.6348,
+          "train_acc_pct": 76.99,
+          "val_acc_pct": 85.93,
+          "val_bal_acc_pct": 86.42,
+          "val_real_recall_pct": 87.07,
+          "val_fake_recall_pct": 85.77,
+          "val_roc_auc": 0.9362,
+          "val_f1": 0.9146,
+          "epoch_sec": 404.1,
+          "val_dom_roc_auc": 0.8812,
+          "val_dom_bal_acc_pct": 76.49,
+          "val_dom_real_recall_pct": 62.59
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.603,
+          "train_acc_pct": 79.6,
+          "val_acc_pct": 84.85,
+          "val_bal_acc_pct": 88.15,
+          "val_real_recall_pct": 92.52,
+          "val_fake_recall_pct": 83.79,
+          "val_roc_auc": 0.949,
+          "val_f1": 0.9067,
+          "epoch_sec": 406.8,
+          "val_dom_roc_auc": 0.8774,
+          "val_dom_bal_acc_pct": 80.5,
+          "val_dom_real_recall_pct": 78.91
+        }
+      ],
+      "val_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 84.85,
+        "balanced_accuracy_pct": 88.15,
+        "roc_auc": 0.949,
+        "f1": 0.9067,
+        "real_recall_pct": 92.52,
+        "fake_recall_pct": 83.79,
+        "confusion_matrix": {
+          "tn": 136,
+          "fp": 11,
+          "fn": 172,
+          "tp": 889
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 99.7,
+          "Deepfakes": 76.19,
+          "Face2Face": 87.07,
+          "FaceShifter": 73.47,
+          "FaceSwap": 87.77,
+          "NeuralTextures": 58.5,
+          "original": 92.52
+        }
+      },
+      "test_metrics_raw": {
+        "threshold": 0.5,
+        "accuracy_pct": 82.2,
+        "balanced_accuracy_pct": 86.29,
+        "roc_auc": 0.9408,
+        "f1": 0.8865,
+        "real_recall_pct": 91.95,
+        "fake_recall_pct": 80.64,
+        "confusion_matrix": {
+          "tn": 137,
+          "fp": 12,
+          "fn": 181,
+          "tp": 754
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 98.99,
+          "Deepfakes": 81.21,
+          "Face2Face": 83.22,
+          "FaceShifter": 73.83,
+          "FaceSwap": 87.23,
+          "NeuralTextures": 53.69,
+          "original": 91.95
+        }
+      },
+      "test_metrics_calibrated": {
+        "threshold": 0.57,
+        "accuracy_pct": 81.37,
+        "balanced_accuracy_pct": 86.38,
+        "roc_auc": 0.9408,
+        "f1": 0.8803,
+        "real_recall_pct": 93.29,
+        "fake_recall_pct": 79.47,
+        "confusion_matrix": {
+          "tn": 139,
+          "fp": 10,
+          "fn": 192,
+          "tp": 743
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 98.99,
+          "Deepfakes": 79.19,
+          "Face2Face": 81.88,
+          "FaceShifter": 72.48,
+          "FaceSwap": 85.11,
+          "NeuralTextures": 53.02,
+          "original": 93.29
+        }
+      },
+      "test_domain_metrics": {
+        "raw_05": {
+          "threshold": 0.5,
+          "accuracy_pct": 77.77,
+          "balanced_accuracy_pct": 79.5,
+          "roc_auc": 0.8687,
+          "f1": 0.8568,
+          "real_recall_pct": 81.88,
+          "fake_recall_pct": 77.11,
+          "confusion_matrix": {
+            "tn": 122,
+            "fp": 27,
+            "fn": 214,
+            "tp": 721
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 97.98,
+            "Deepfakes": 76.51,
+            "Face2Face": 75.84,
+            "FaceShifter": 74.5,
+            "FaceSwap": 71.63,
+            "NeuralTextures": 59.06,
+            "original": 81.88
+          }
+        },
+        "calibrated": {
+          "threshold": 0.57,
+          "accuracy_pct": 77.03,
+          "balanced_accuracy_pct": 79.63,
+          "roc_auc": 0.8687,
+          "f1": 0.851,
+          "real_recall_pct": 83.22,
+          "fake_recall_pct": 76.04,
+          "confusion_matrix": {
+            "tn": 124,
+            "fp": 25,
+            "fn": 224,
+            "tp": 711
+          },
+          "per_category_accuracy_pct": {
+            "DeepFakeDetection": 96.97,
+            "Deepfakes": 74.5,
+            "Face2Face": 75.17,
+            "FaceShifter": 73.83,
+            "FaceSwap": 70.21,
+            "NeuralTextures": 58.39,
+            "original": 83.22
+          }
+        }
+      },
+      "contextual_misinfo_test": {
+        "deceptive_claim_class2_recall_pct": 95.97,
+        "benign_claim_class0_acc_pct": 93.29,
+        "n_real_clips": 149
+      }
+    }
+  },
+  "committee_ensemble": {
+    "ensemble_pkl_file": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_committee_ensemble.pkl",
+    "specialist_weights": {
+      "mobilenet_v3": 1.4993,
+      "temporal_lstm": 0.4892,
+      "mesonet": 1.07,
+      "resnet50": 3.7785,
+      "xception": 1.8467,
+      "efficientnet_v2": 3.187
+    },
+    "soft_vote_raw_05": {
+      "threshold": 0.5,
+      "accuracy_pct": 89.11,
+      "balanced_accuracy_pct": 88.89,
+      "roc_auc": 0.9587,
+      "f1": 0.9339,
+      "real_recall_pct": 88.59,
+      "fake_recall_pct": 89.2,
+      "confusion_matrix": {
+        "tn": 132,
+        "fp": 17,
+        "fn": 101,
+        "tp": 834
+      },
+      "per_category_accuracy_pct": {
+        "DeepFakeDetection": 100.0,
+        "Deepfakes": 93.96,
+        "Face2Face": 89.93,
+        "FaceShifter": 88.59,
+        "FaceSwap": 90.07,
+        "NeuralTextures": 69.13,
+        "original": 88.59
+      }
+    },
+    "soft_vote_calibrated": {
+      "threshold": 0.55,
+      "accuracy_pct": 84.78,
+      "balanced_accuracy_pct": 88.07,
+      "roc_auc": 0.9587,
+      "f1": 0.9045,
+      "real_recall_pct": 92.62,
+      "fake_recall_pct": 83.53,
+      "confusion_matrix": {
+        "tn": 138,
+        "fp": 11,
+        "fn": 154,
+        "tp": 781
+      },
+      "per_category_accuracy_pct": {
+        "DeepFakeDetection": 100.0,
+        "Deepfakes": 89.93,
+        "Face2Face": 80.54,
+        "FaceShifter": 81.88,
+        "FaceSwap": 82.27,
+        "NeuralTextures": 61.07,
+        "original": 92.62
+      }
+    },
+    "stacked_committee_raw_05": {
+      "threshold": 0.5,
+      "accuracy_pct": 89.02,
+      "balanced_accuracy_pct": 90.25,
+      "roc_auc": 0.9674,
+      "f1": 0.933,
+      "real_recall_pct": 91.95,
+      "fake_recall_pct": 88.56,
+      "confusion_matrix": {
+        "tn": 137,
+        "fp": 12,
+        "fn": 107,
+        "tp": 828
+      },
+      "per_category_accuracy_pct": {
+        "DeepFakeDetection": 100.0,
+        "Deepfakes": 91.95,
+        "Face2Face": 91.95,
+        "FaceShifter": 86.58,
+        "FaceSwap": 90.78,
+        "NeuralTextures": 66.44,
+        "original": 91.95
+      }
+    },
+    "stacked_committee_calibrated": {
+      "threshold": 0.61,
+      "accuracy_pct": 86.62,
+      "balanced_accuracy_pct": 90.27,
+      "roc_auc": 0.9674,
+      "f1": 0.9166,
+      "real_recall_pct": 95.3,
+      "fake_recall_pct": 85.24,
+      "confusion_matrix": {
+        "tn": 142,
+        "fp": 7,
+        "fn": 138,
+        "tp": 797
+      },
+      "per_category_accuracy_pct": {
+        "DeepFakeDetection": 100.0,
+        "Deepfakes": 88.59,
+        "Face2Face": 89.26,
+        "FaceShifter": 80.54,
+        "FaceSwap": 90.07,
+        "NeuralTextures": 58.39,
+        "original": 95.3
+      }
+    },
+    "domain_test": {
+      "stacked_dom_raw_05": {
+        "threshold": 0.5,
+        "accuracy_pct": 82.56,
+        "balanced_accuracy_pct": 81.71,
+        "roc_auc": 0.9023,
+        "f1": 0.8913,
+        "real_recall_pct": 80.54,
+        "fake_recall_pct": 82.89,
+        "confusion_matrix": {
+          "tn": 120,
+          "fp": 29,
+          "fn": 160,
+          "tp": 775
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 98.99,
+          "Deepfakes": 82.55,
+          "Face2Face": 84.56,
+          "FaceShifter": 81.21,
+          "FaceSwap": 82.27,
+          "NeuralTextures": 62.42,
+          "original": 80.54
+        }
+      },
+      "stacked_dom_calibrated": {
+        "threshold": 0.61,
+        "accuracy_pct": 79.43,
+        "balanced_accuracy_pct": 82.43,
+        "roc_auc": 0.9023,
+        "f1": 0.8678,
+        "real_recall_pct": 86.58,
+        "fake_recall_pct": 78.29,
+        "confusion_matrix": {
+          "tn": 129,
+          "fp": 20,
+          "fn": 203,
+          "tp": 732
+        },
+        "per_category_accuracy_pct": {
+          "DeepFakeDetection": 98.48,
+          "Deepfakes": 79.19,
+          "Face2Face": 79.19,
+          "FaceShifter": 75.17,
+          "FaceSwap": 75.18,
+          "NeuralTextures": 55.7,
+          "original": 86.58
+        }
+      }
+    }
+  },
+  "distilled_student": {
+    "final_epoch": 6,
+    "best_val_roc_auc": 0.9019,
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.5771,
+        "train_acc": 59.37,
+        "val_acc": 57.95,
+        "val_bal_acc": 69.91,
+        "val_roc_auc": 0.7755,
+        "val_f1": 0.6932,
+        "val_dom_roc_auc": 0.7679,
+        "val_dom_bal_acc": 65.89
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.3961,
+        "train_acc": 69.79,
+        "val_acc": 82.28,
+        "val_bal_acc": 75.85,
+        "val_roc_auc": 0.8558,
+        "val_f1": 0.8932,
+        "val_dom_roc_auc": 0.8197,
+        "val_dom_bal_acc": 73.62
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.3572,
+        "train_acc": 74.22,
+        "val_acc": 89.74,
+        "val_bal_acc": 62.22,
+        "val_roc_auc": 0.8986,
+        "val_f1": 0.944,
+        "val_dom_roc_auc": 0.868,
+        "val_dom_bal_acc": 60.33
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.3287,
+        "train_acc": 77.97,
+        "val_acc": 82.7,
+        "val_bal_acc": 83.12,
+        "val_roc_auc": 0.9054,
+        "val_f1": 0.8934,
+        "val_dom_roc_auc": 0.8683,
+        "val_dom_bal_acc": 79.8
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.3146,
+        "train_acc": 78.85,
+        "val_acc": 84.85,
+        "val_bal_acc": 83.76,
+        "val_roc_auc": 0.9199,
+        "val_f1": 0.9081,
+        "val_dom_roc_auc": 0.8823,
+        "val_dom_bal_acc": 79.46
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.3036,
+        "train_acc": 80.39,
+        "val_acc": 86.09,
+        "val_bal_acc": 83.88,
+        "val_roc_auc": 0.9241,
+        "val_f1": 0.9164,
+        "val_dom_roc_auc": 0.8871,
+        "val_dom_bal_acc": 79.72
+      }
+    ],
+    "quantization_info": {
+      "fp32_model_path": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_student_fp32.onnx",
+      "fp32_size_mb": 3.54,
+      "int8_model_path": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_edge_int8.onnx",
+      "int8_size_mb": 0.92,
+      "compression_ratio": 3.83,
+      "target_max_size_mb": 45.0,
+      "is_size_compliant": true,
+      "test_latency_ms": 6.2,
+      "test_output_shape": [
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    "checkpoint_path": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\checkpoints\\verimedia_student_best.pth",
+    "test_metrics": {
+      "accuracy_pct": 82.84,
+      "balanced_accuracy_pct": 81.03,
+      "roc_auc": 0.8935,
+      "f1": 0.8936,
+      "real_recall_pct": 78.52,
+      "fake_recall_pct": 83.53,
+      "confusion_matrix": {
+        "tn": 117,
+        "fp": 32,
+        "fn": 154,
+        "tp": 781
+      },
+      "per_category_accuracy_pct": {
+        "DeepFakeDetection": 100.0,
+        "Deepfakes": 87.92,
+        "Face2Face": 77.85,
+        "FaceShifter": 84.56,
+        "FaceSwap": 79.43,
+        "NeuralTextures": 65.77,
+        "original": 78.52
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "total_videos": 7,
+  "dataset_distribution": {
+    "FaceForensics++": 7
+  },
+  "label_distribution": {
+    "FAKE": 5,
+    "REAL": 2
+  },
+  "category_distribution": {
+    "original": 2,
+    "Deepfakes": 2,
+    "NeuralTextures": 1,
+    "FaceSwap": 1,
+    "Face2Face": 1
+  },
+  "split_distribution": {
+    "test": 5,
+    "train": 2
+  },
+  "unique_source_identities": 4
+}

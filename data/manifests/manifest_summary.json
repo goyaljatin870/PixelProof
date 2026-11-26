@@ -1,0 +1,25 @@
+{
+  "total_videos": 7000,
+  "dataset_distribution": {
+    "FaceForensics++": 7000
+  },
+  "label_distribution": {
+    "FAKE": 6000,
+    "REAL": 1000
+  },
+  "category_distribution": {
+    "DeepFakeDetection": 1000,
+    "Deepfakes": 1000,
+    "Face2Face": 1000,
+    "FaceShifter": 1000,
+    "FaceSwap": 1000,
+    "NeuralTextures": 1000,
+    "original": 1000
+  },
+  "split_distribution": {
+    "train": 4692,
+    "val": 1216,
+    "test": 1092
+  },
+  "unique_source_identities": 1028
+}

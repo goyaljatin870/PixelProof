@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+
+# Datasets, Feature Caches & User Uploads (Keep raw datasets and media out of GitHub)
+FaceForensics++_C23/
+data/FaceForensics++/
+data/in_the_wild/
+data/raw/
+data/processed/
+data/degraded_whatsapp/
+data/frame_cache_8f/
+data/manifests/manifest.csv
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.flac
+*.mp3
+*.npy
+*.npz
+
+# Heavy Checkpoints (>100MB GitHub limit) & Backup Directories (Keep .pkl calibrators & .onnx binaries)
+artifacts/checkpoints/*.pt
+artifacts/checkpoints/*.pth
+artifacts/checkpoints/*.onnx
+artifacts/checkpoints_c23_clean/
+artifacts/checkpoints_optB_wip/
+artifacts/cache/
+artifacts/reports/*.pdf
+
+# IDE, Office Temp Files & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*.docx
+~$*.pptx
+
+# Environment variables & Secrets
+.env
+*.env
+!.env.example
