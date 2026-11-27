@@ -1,7 +1,7 @@
-# VeriMedia — Teacher Demo & Viva Presentation Guide
+# PixelProof — Teacher Demo & Viva Presentation Guide
 
 ## 1. 30-Second Project Pitch (What to Say First)
-> *"VeriMedia is an edge-optimized multimodal deepfake and regional misinformation detection engine designed for heavily compressed dark-social media like WhatsApp and Telegram. Instead of relying only on visual pixels—which break under H.264 CRF 38 compression and miss real videos paired with fake captions—VeriMedia fuses **3 forensic streams**: Steganalysis Rich Model (SRM) high-pass visual noise filters, 16 kHz acoustic vocoder inspection, and regional claim intent modeling. Our 6-model RTX 4050 GPU-trained committee achieves **0.9674 ROC-AUC (90.25% balanced accuracy, 95.3% real recall)** on the 1,092-video identity-disjoint FaceForensics++ C23 test split, and we distill the ResNet-50 teacher down into a **0.92 MB INT8 ONNX mobile student** running in sub-millisecond CPU inference."*
+> *"PixelProof is an edge-optimized multimodal deepfake and regional misinformation detection engine designed for heavily compressed dark-social media like WhatsApp and Telegram. Instead of relying only on visual pixels—which break under H.264 CRF 38 compression and miss real videos paired with fake captions—PixelProof fuses **3 forensic streams**: Steganalysis Rich Model (SRM) high-pass visual noise filters, 16 kHz acoustic vocoder inspection, and regional claim intent modeling. Our 6-model RTX 4050 GPU-trained committee achieves **0.9674 ROC-AUC (90.25% balanced accuracy, 95.3% real recall)** on the 1,092-video identity-disjoint FaceForensics++ C23 test split, and we distill the ResNet-50 teacher down into a **0.92 MB INT8 ONNX mobile student** running in sub-millisecond CPU inference."*
 
 ---
 

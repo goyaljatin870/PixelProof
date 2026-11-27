@@ -88,7 +88,7 @@ def quantize_onnx_to_int8(
 ) -> Dict[str, Any]:
     """
     Quantizes FP32 ONNX model to 8-bit integers (QUInt8 / QInt8) for edge deployment.
-    Enforces VeriMedia System Verification Matrix requirement: Model Size <= 45 MB.
+    Enforces PixelProof System Verification Matrix requirement: Model Size <= 45 MB.
     """
     config.onnx_dir.mkdir(parents=True, exist_ok=True)
     

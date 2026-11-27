@@ -1,5 +1,5 @@
 """
-VeriMedia - Multimodal Deepfake & Regional Misinformation Detection Engine
+PixelProof - Multimodal Deepfake & Regional Misinformation Detection Engine
 """
 
 import sys

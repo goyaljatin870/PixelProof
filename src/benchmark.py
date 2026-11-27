@@ -138,7 +138,7 @@ def benchmark_edge_model(
         json.dump(report, f, indent=2)
 
     with open(md_path, "w", encoding="utf-8") as f:
-        f.write("# VeriMedia System Verification Matrix Report\n\n")
+        f.write("# PixelProof System Verification Matrix Report\n\n")
         f.write(f"**Verification Status**: `{'✅ PASS' if report['status'] == 'PASS' else '⚠️ FLAGGED'}`  \n")
         f.write(f"**Evaluated Model**: `{model_file.name}`  \n\n")
         f.write("| Metric | Target Specification | Measured Value | Compliance |\n")

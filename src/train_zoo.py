@@ -1,5 +1,5 @@
 """
-train_zoo.py - VeriMedia Model Zoo GPU Training, Calibration, Ensemble Stacking & Test Evaluation
+train_zoo.py - PixelProof Model Zoo GPU Training, Calibration, Ensemble Stacking & Test Evaluation
 Trains all 6 specialist architectures (MobileNetV3, Temporal-LSTM, MesoInception-4,
 ResNet-50, XceptionNet, EfficientNetV2-S), saves best .pth checkpoints, .pkl calibrators &
 committee stacking ensemble, exports ONNX graphs, distills Edge Student + INT8 ONNX,
@@ -789,7 +789,7 @@ def train_all_models(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train Models in VeriMedia Model Zoo")
+    parser = argparse.ArgumentParser(description="Train Models in PixelProof Model Zoo")
     parser.add_argument("--model", type=str, default="all", help="Model name (or 'all')")
     parser.add_argument("--epochs", type=int, default=8, help="Epochs per model")
     parser.add_argument("--samples", type=int, default=None, help="Optional cap on training samples")

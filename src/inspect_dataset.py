@@ -355,7 +355,7 @@ def print_manifest_report(summary: Dict[str, Any]):
     Prints a formatted summary report for dataset manifests.
     """
     print("\n" + "="*60)
-    print("VERIMEDIA DATASET MANIFEST SUMMARY")
+    print("PIXELPROOF DATASET MANIFEST SUMMARY")
     print("="*60)
     print(f"Total Videos Verified: {summary.get('total_videos')}")
     print(f"Unique Identities: {summary.get('unique_source_identities', 'N/A')}")
@@ -366,7 +366,7 @@ def print_manifest_report(summary: Dict[str, Any]):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="VeriMedia Dataset Inspector & Manifest Builder")
+    parser = argparse.ArgumentParser(description="PixelProof Dataset Inspector & Manifest Builder")
     parser.add_argument("--ff_path", type=str, default=str(config.dataset_root), help="Path to FaceForensics++ root")
     parser.add_argument("--output_dir", type=str, default=str(config.manifest_dir), help="Output directory")
 

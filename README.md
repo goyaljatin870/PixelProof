@@ -1,13 +1,13 @@
-# VeriMedia: Multimodal Deepfake & Regional Misinformation Detection Engine
+# PixelProof: Multimodal Deepfake & Regional Misinformation Detection Engine
 > **Edge-Optimized Verification Engine for Dark-Social, Heavily Compressed Media (WhatsApp / Telegram)**
 
 ---
 
 ## 1. Executive Summary & Pitch
 
-**VeriMedia** is an edge-optimized multimodal deepfake and regional misinformation detection engine engineered specifically to identify synthetic media and contextual narrative deception in heavily compressed, low-bandwidth distribution networks (WhatsApp, Telegram, regional social platforms).
+**PixelProof** is an edge-optimized multimodal deepfake and regional misinformation detection engine engineered specifically to identify synthetic media and contextual narrative deception in heavily compressed, low-bandwidth distribution networks (WhatsApp, Telegram, regional social platforms).
 
-Rather than relying on cloud-bound computing overhead, VeriMedia operates an asynchronous late-fusion ensemble across visual, vocal, and textual modalities and applies post-training INT8 quantization to achieve sub-millisecond edge CPU inference with a total model payload of **0.92 MB** (well below the 45 MB mobile ceiling).
+Rather than relying on cloud-bound computing overhead, PixelProof operates an asynchronous late-fusion ensemble across visual, vocal, and textual modalities and applies post-training INT8 quantization to achieve sub-millisecond edge CPU inference with a total model payload of **0.92 MB** (well below the 45 MB mobile ceiling).
 
 ---
 
@@ -17,9 +17,9 @@ Tested against the project technical specification matrix:
 
 | Metric | Target Specification | Achieved Measured Value | Compliance Status |
 | :--- | :--- | :--- | :--- |
-| **Inference Latency** | `< 300 ms` per media item | **0.15–0.25 ms** | **PASS ✅** |
+| **Inference Latency** | `< 300 ms` per media item | **0.16 ms mean (0.24 ms p95)** | **PASS ✅** |
 | **Model Size** | `≤ 45 MB` total binary | **0.92 MB** (FP32: 3.54 MB, `3.83x`) | **PASS ✅** |
-| **Peak Active Memory** | `< 180 MB` active RAM | **0.1 MB** active delta | **PASS ✅** |
+| **Peak Active Memory** | `< 180 MB` active RAM | **0.46 MB** active delta | **PASS ✅** |
 | **Quantization Scheme** | 8-Bit Dynamic PTQ (QUInt8) | ONNX Runtime Mobile Compatible | **PASS ✅** |
 
 ### RTX 4050 Trained Committee Results (FaceForensics++ C23 Held-Out Test Split, `N = 1,092`)

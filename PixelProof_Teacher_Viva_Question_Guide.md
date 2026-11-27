@@ -1,22 +1,22 @@
-# VeriMedia — Complete Teacher Viva & Cross-Examination Question Guide
+# PixelProof — Complete Teacher Viva & Cross-Examination Question Guide
 
 > **Prepared for:** Classroom Presentation & External ML Viva Examination  
 > **Repository:** `https://github.com/goyaljatin870/verimedia`  
-> **Core Stack:** PyTorch `2.14.1+cu130` (RTX 4050 `sm_89`) • FaceForensics++ C23 (`7,000` videos, `1,028` actors) • 6-Model Stacked Committee (`0.9674` Test ROC-AUC) • Distilled INT8 ONNX Edge Student (`0.92 MB`, `0.14 ms` CPU latency)
+> **Core Stack:** PyTorch `2.14.1+cu130` (RTX 4050 `sm_89`) • FaceForensics++ C23 (`7,000` videos, `1,028` actors) • 6-Model Stacked Committee (`0.9674` Test ROC-AUC) • Distilled INT8 ONNX Edge Student (`0.92 MB`, `0.16 ms` CPU latency)
 
 ---
 
 ## 1. Quick 30-Second Viva Pitch (Memorize This First)
-> *"VeriMedia is an edge-optimized multimodal deepfake and regional misinformation detection engine built specifically for heavily compressed social platforms like WhatsApp and Telegram. Instead of trusting raw RGB pixels alone—which fail under H.264 CRF 38 compression and miss real videos paired with fake captions—VeriMedia combines fixed 5x5 Steganalysis Rich Model (SRM) high-pass visual filters, 16 kHz acoustic vocoder inspection, and deterministic CRC32 text-claim modeling through a Late-Fusion Cosine Discrepancy Head. Trained on 7,000 identity-disjoint FaceForensics++ C23 clips across 6 vision architectures on an RTX 4050 GPU, our calibrated Stacked Meta-Learner (`.pkl`) achieves **0.9674 test ROC-AUC (90.25% balanced accuracy and 95.30% authentic recall at threshold 0.61)**, while cross-modal Knowledge Distillation + QUInt8 ONNX quantization compresses the ResNet-50 teacher into a **0.92 MB** mobile model running at **0.14 ms** CPU latency."*
+> *"PixelProof is an edge-optimized multimodal deepfake and regional misinformation detection engine built specifically for heavily compressed social platforms like WhatsApp and Telegram. Instead of trusting raw RGB pixels alone—which fail under H.264 CRF 38 compression and miss real videos paired with fake captions—PixelProof combines fixed 5x5 Steganalysis Rich Model (SRM) high-pass visual filters, 16 kHz acoustic vocoder inspection, and deterministic CRC32 text-claim modeling through a Late-Fusion Cosine Discrepancy Head. Trained on 7,000 identity-disjoint FaceForensics++ C23 clips across 6 vision architectures on an RTX 4050 GPU, our calibrated Stacked Meta-Learner (`.pkl`) achieves **0.9674 test ROC-AUC (90.25% balanced accuracy and 95.30% authentic recall at threshold 0.61)**, while cross-modal Knowledge Distillation + QUInt8 ONNX quantization compresses the ResNet-50 teacher into a **0.92 MB** mobile model running at **0.16 ms** CPU latency."*
 
 ---
 
 ## 2. Core Concept & Motivation Questions
 
 ### Q1. Why did you choose this problem instead of standard image deepfake detection?
-**Answer:** Standard deepfake detectors fail in two real-world scenarios: (1) dark-social platforms like WhatsApp recompress videos down to ~480p, 15 FPS, and H.264 CRF 38 quantization, wiping out fine GAN skin textures; and (2) **"cheapfakes"**—real, unedited news videos shared with false viral election captions—fool visual-only CNNs completely because every pixel is authentic. VeriMedia tackles compression robustness, multimodal cheapfakes, and strict mobile deployment (`<= 45 MB`, `< 300 ms`) together.
+**Answer:** Standard deepfake detectors fail in two real-world scenarios: (1) dark-social platforms like WhatsApp recompress videos down to ~480p, 15 FPS, and H.264 CRF 38 quantization, wiping out fine GAN skin textures; and (2) **"cheapfakes"**—real, unedited news videos shared with false viral election captions—fool visual-only CNNs completely because every pixel is authentic. PixelProof tackles compression robustness, multimodal cheapfakes, and strict mobile deployment (`<= 45 MB`, `< 300 ms`) together.
 
-### Q2. What are the 3 output classes in VeriMedia?
+### Q2. What are the 3 output classes in PixelProof?
 **Answer:**  
 - **Class 0 — `Authentic`:** Clean real video + neutral/no deceptive claim + clean audio stream.  
 - **Class 1 — `Manipulated Payload`:** Face-swapped, reenacted, or neural-rendered visual pixels (or synthetic voice spoofing).  
@@ -58,7 +58,7 @@
 ### Q9. Why crop faces (`224x224`) with Haar Cascades instead of passing full `1920x1080` frames into the neural network?
 **Answer:** Face manipulation happens inside the facial region (~10–25% of frame pixels). Feeding full `1080p` frames dilutes gradients on irrelevant TV news banners or room backgrounds and explodes VRAM usage. Pre-caching `8` uniform `224x224` Haar crops (`frontalface_default` + `frontalface_alt2` fallback with `20%` margin) took `11.27 min` once for all `7,000` clips and cut GPU epoch time dramatically.
 
-### Q10. Why does VeriMedia sometimes return `Inconclusive (Insufficient Face Evidence)`?
+### Q10. Why does PixelProof sometimes return `Inconclusive (Insufficient Face Evidence)`?
 **Answer:** If a video shows landscapes or blank screens without a detectable human face across sampled frames (below the minimum Haar box floor `max(24, min(110, 5% of min dim))`), running a face-deepfake classifier would output random noise. `src/pipeline.py` flags it cleanly as `Inconclusive` and clears dissenting model warnings instead of fabricating a fake verdict.
 
 ---
@@ -119,7 +119,7 @@ $$\mathcal{L}_{KD} = (1 - \alpha)\,\text{CE}(z_s, y) + \alpha\,T^2\,\text{KL}\!\
 - `MSE(D_s, D_t)` forces the tiny student's visual-audio-text contradiction distances to mimic the large teacher.
 
 ### Q20. How did you shrink a 144.21 MB PyTorch model down to 0.92 MB?
-**Answer:** Two steps: (1) **Knowledge Distillation** into `MobileNetV3` (`3.54 MB` when fusion head is exported to FP32 ONNX Opset 18), followed by (2) **8-bit Dynamic Post-Training Quantization (`QUInt8`)** via `onnxruntime.quantization.quantize_dynamic` (`3.83x` shrink -> **`0.92 MB`**), achieving **`0.14 ms` mean CPU latency** (`0.19 ms` p95) and **`0.46 MB` active RAM delta** over 50 benchmark runs—crushing the `<= 45 MB`, `< 300 ms`, `< 180 MB` System Verification Matrix limits.
+**Answer:** Two steps: (1) **Knowledge Distillation** into `MobileNetV3` (`3.54 MB` when fusion head is exported to FP32 ONNX Opset 18), followed by (2) **8-bit Dynamic Post-Training Quantization (`QUInt8`)** via `onnxruntime.quantization.quantize_dynamic` (`3.83x` shrink -> **`0.92 MB`**), achieving **`0.16 ms` mean CPU latency** (`0.24 ms` p95) and **`0.46 MB` active RAM delta** over 50 benchmark runs—crushing the `<= 45 MB`, `< 300 ms`, `< 180 MB` System Verification Matrix limits.
 
 ### Q21. Why use Dynamic PTQ (`QUInt8`) instead of Static Quantization or QAT?
 **Answer:** For edge MLP / Transformer-style projection heads (`VeriMediaEdgeONNXWrapper`), weights dominate memory and matrices multiply activations dynamically at runtime without needing calibration histograms or fragile GPU QAT graphs—delivering a `3.83x` size reduction cleanly on `CPUExecutionProvider`. (Good future work is quantizing the full convolutional backbone cleanly too!)
@@ -157,6 +157,6 @@ $$\mathcal{L}_{KD} = (1 - \alpha)\,\text{CE}(z_s, y) + \alpha\,T^2\,\text{KL}\!\
 | **Best Single Backbone** | **`ResNet-50`: `0.9516` AUC** (`91.14%` raw acc); **`EfficientNetV2-S`: `0.9408` AUC** |
 | **Highest Stacker Weights** | `ResNet-50` (`3.7785`), `EfficientNetV2` (`3.1870`), `Xception` (`1.8467`) |
 | **Distilled Student Test AUC** | **`0.8935` ROC-AUC** (`82.84%` raw acc, `81.03%` balanced acc) |
-| **Edge INT8 Verification** | **`0.92 MB`** (`<= 45 MB`), **`0.14 ms` mean / `0.19 ms` p95** (`< 300 ms`), **`0.46 MB` RAM delta** (`< 180 MB`) |
+| **Edge INT8 Verification** | **`0.92 MB`** (`<= 45 MB`), **`0.16 ms` mean / `0.24 ms` p95** (`< 300 ms`), **`0.46 MB` RAM delta** (`< 180 MB`) |
 | **GPU & Runtime** | NVIDIA **RTX 4050 (`6 GB VRAM`, `sm_89`)**, PyTorch **`2.14.1+cu130`**, **`185.18 min`**, `6` epochs |
 | **Unit Tests** | **`13 / 13` PyTest cases PASS** across SRM, branches, splits & ONNX INT8 |

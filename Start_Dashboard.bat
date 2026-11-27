@@ -2,7 +2,7 @@
 chcp 65001 >nul
 cd /d "%~dp0"
 echo ============================================================================
-echo   VeriMedia - Multimodal Deepfake ^& Misinformation Forensic Studio
+echo   PixelProof - Multimodal Deepfake ^& Misinformation Forensic Studio
 echo ============================================================================
 echo.
 if not exist ".venv\Scripts\python.exe" (

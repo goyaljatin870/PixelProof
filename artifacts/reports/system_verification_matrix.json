@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "timestamp": "2026-11-27 12:38:20",
+  "timestamp": "2026-11-27 13:12:56",
   "model_path": "C:\\Users\\goyal\\Downloads\\Youth United Media\\VeriMedia-main\\VeriMedia-main\\artifacts\\onnx\\verimedia_edge_int8.onnx",
   "metrics": {
     "model_size": {
@@ -9,17 +9,17 @@
       "compliant": true
     },
     "inference_latency": {
-      "mean_ms": 0.14,
-      "p50_ms": 0.13,
-      "p95_ms": 0.19,
+      "mean_ms": 0.16,
+      "p50_ms": 0.15,
+      "p95_ms": 0.24,
       "min_ms": 0.12,
-      "max_ms": 0.21,
+      "max_ms": 0.37,
       "target_ms": 300.0,
       "compliant": true
     },
     "active_memory_footprint": {
       "active_delta_mb": 0.46,
-      "process_rss_mb": 1765.94,
+      "process_rss_mb": 1762.1,
       "target_mb": 180.0,
       "compliant": true
     }

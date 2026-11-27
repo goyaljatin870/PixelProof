@@ -1,5 +1,5 @@
 """
-app.py - VeriMedia Advanced Multimodal Forensic Command Studio
+app.py - PixelProof Advanced Multimodal Forensic Command Studio
 Autonomous Multi-Model Forensic Committee (Option A)
 Next-Generation Aesthetic Cyber-Forensic Interface with Real-Time Specialist Radar,
 Multi-Frame Visual Filmstrips, Acoustic Vocoder Oscillograms, and .pth Checkpoint Management.
@@ -37,7 +37,7 @@ from src.benchmark import benchmark_edge_model
 # 1. Page Configuration & Cyber-Forensic CSS Styling
 # =====================================================================
 st.set_page_config(
-    page_title="VeriMedia — Multimodal Forensic Command Studio",
+    page_title="PixelProof — Multimodal Forensic Command Studio",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="collapsed"
@@ -724,7 +724,7 @@ def render_command_header(trained_ready: bool = False):
     st.markdown(f"""
     <div class="command-header">
         <div class="command-title">
-            <span>🛡️ VeriMedia Forensic Studio</span>
+            <span>🛡️ PixelProof Forensic Studio</span>
         </div>
         <div class="command-subtitle">
             Autonomous Multimodal Deepfake & Regional Misinformation Detection Engine
@@ -1286,7 +1286,7 @@ def render_scanner_tab(engine: ForensicCommitteeEngine, samples: Dict[str, list]
                 <div class="forensic-cert-box">
                     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.2rem;">
                         <div>
-                            <span style="font-size: 1.3rem; font-weight: 800; color: #F8FAFC;">VERIMEDIA OFFICIAL FORENSIC CERTIFICATE</span><br>
+                            <span style="font-size: 1.3rem; font-weight: 800; color: #F8FAFC;">PIXELPROOF OFFICIAL FORENSIC CERTIFICATE</span><br>
                             <span style="font-size: 0.8rem; color: #94A3B8;">MULTIMODAL DEEPFAKE & MISINFORMATION VERIFICATION ENGINE</span>
                         </div>
                         <div style="text-align: right;">
@@ -1310,7 +1310,7 @@ def render_scanner_tab(engine: ForensicCommitteeEngine, samples: Dict[str, list]
                 """, unsafe_allow_html=True)
 
                 export_dict = {
-                    "verimedia_version": "2.5-committee",
+                    "pixelproof_version": "2.5-committee",
                     "certificate_hash": cert_hash,
                     "timestamp": time.strftime("%Y-%m-%d %H:%M:%S"),
                     "consensus": cons,
@@ -1322,7 +1322,7 @@ def render_scanner_tab(engine: ForensicCommitteeEngine, samples: Dict[str, list]
                 st.download_button(
                     "📥 Download Signed Forensic Certificate (JSON Dossier)",
                     data=json.dumps(export_dict, indent=2),
-                    file_name=f"verimedia_certificate_{cert_hash[:8]}.json",
+                    file_name=f"pixelproof_certificate_{cert_hash[:8]}.json",
                     mime="application/json",
                     width="stretch"
                 )

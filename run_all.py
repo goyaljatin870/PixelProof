@@ -1,5 +1,5 @@
 """
-run_all.py - Master VS Code Execution Script for VeriMedia
+run_all.py - Master VS Code Execution Script for PixelProof
 Run this file directly in VS Code (Press F5 or click 'Run Python File' in the top right).
 Provides an interactive menu and an automated end-to-end demonstration.
 """
@@ -33,12 +33,11 @@ from src.pipeline import VeriMediaEngine
 def print_banner():
     print(rf"""
 ================================================================================
-   ____   __           _  __  ___          ___         
-  / __/  / /  ___ ____(_) / / / _ \___ ___ / _/__ ____ _
- _\ \   / _ \/ _ `/ __/ / _ \/ // / -_) -_) _/ _ `/ _ `/
-/___/  /_//_/\_,_/_/ /_/_//_/____/\__/\__/_/ \_,_/\_, / 
-                                                  /___/  
-        VeriMedia: Multimodal Deepfake & Regional Misinformation Engine
+   ___  _           _ ___                  __ 
+  / _ \(_)_ _____  / / _ \_ __ ___  ___   / _|
+ / ___/ \ \ / -_) / / ___/ '_// _ \/ _ \ |  _|
+/_/  /_/_\_\\___/_/_/_/  |_|  \___/\___/ |_|  
+        PixelProof: Multimodal Deepfake & Regional Misinformation Engine
 ================================================================================
 Dataset Root: {config.dataset_root}
 Edge Target:  Sub-300ms Latency | <= 45MB Quantized INT8 Payload

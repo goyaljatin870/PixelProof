@@ -1,5 +1,5 @@
 """
-cli.py - VeriMedia Command Line Interface
+cli.py - PixelProof Command Line Interface
 Unified CLI for Dataset Inspection, WhatsApp Degradation, ONNX Quantization,
 System Verification Matrix Benchmarking, and Media Prediction.
 """
@@ -92,7 +92,7 @@ def cmd_predict(args):
             simulate_whatsapp_degradation=args.degrade
         )
         print("\n" + "="*65)
-        print("VERIMEDIA INT8 EDGE ONNX VERIFICATION REPORT")
+        print("PIXELPROOF INT8 EDGE ONNX VERIFICATION REPORT")
         print("="*65)
         print(f"VERDICT: {result['verdict'].upper()} (Confidence: {result['confidence']}%)")
         for k, v in result["probabilities"].items():
@@ -122,7 +122,7 @@ def cmd_predict(args):
 
         c = result["consensus"]
         print("\n" + "="*65)
-        print("VERIMEDIA FORENSIC COMMITTEE CONSENSUS REPORT")
+        print("PIXELPROOF FORENSIC COMMITTEE CONSENSUS REPORT")
         print("="*65)
         print(f"MASTER CONSENSUS VERDICT: {c['verdict'].upper()} (Confidence: {c['confidence']}%)")
         print(f"COMMITTEE AGREEMENT: {c['agreement_count']} of {c['total_models']} specialists ({c['agreement_pct']}%)")
@@ -158,7 +158,7 @@ def cmd_predict(args):
     )
 
     print("\n" + "="*65)
-    print("VERIMEDIA FORENSIC VERIFICATION REPORT")
+    print("PIXELPROOF FORENSIC VERIFICATION REPORT")
     print("="*65)
     print(f"VERDICT: {result['verdict'].upper()} (Confidence: {result['confidence']}%)")
     print("\n[Probability Distribution]")
@@ -181,8 +181,8 @@ def cmd_predict(args):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="verimedia",
-        description="VeriMedia — Edge-Optimized Multimodal Deepfake and Regional Misinformation Detection Engine"
+        prog="pixelproof",
+        description="PixelProof — Edge-Optimized Multimodal Deepfake and Regional Misinformation Detection Engine"
     )
     subparsers = parser.add_subparsers(dest="command", help="Available subcommands")
 

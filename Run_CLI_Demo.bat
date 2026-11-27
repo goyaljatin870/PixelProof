@@ -2,7 +2,7 @@
 chcp 65001 >nul
 cd /d "%~dp0"
 echo ============================================================================
-echo   VeriMedia - End-to-End CLI Pipeline ^& System Verification Demo
+echo   PixelProof - End-to-End CLI Pipeline ^& System Verification Demo
 echo ============================================================================
 echo.
 if not exist ".venv\Scripts\python.exe" (

@@ -642,7 +642,7 @@ def train_fusion_model(
 
 
 def main():
-    parser = argparse.ArgumentParser(description="VeriMedia Late-Fusion Training & Distillation")
+    parser = argparse.ArgumentParser(description="PixelProof Late-Fusion Training & Distillation")
     parser.add_argument("--epochs", type=int, default=8, help="Training epochs")
     parser.add_argument("--batch_size", type=int, default=16, help="Batch size")
     parser.add_argument("--limit_samples", type=int, default=None, help="Optional cap on training samples")
