@@ -1,7 +1,7 @@
 # PixelProof — Complete Teacher Viva & Cross-Examination Question Guide
 
 > **Prepared for:** Classroom Presentation & External ML Viva Examination  
-> **Repository:** `https://github.com/goyaljatin870/verimedia`  
+> **Repository:** `https://github.com/goyaljatin870/PixelProof`  
 > **Core Stack:** PyTorch `2.14.1+cu130` (RTX 4050 `sm_89`) • FaceForensics++ C23 (`7,000` videos, `1,028` actors) • 6-Model Stacked Committee (`0.9674` Test ROC-AUC) • Distilled INT8 ONNX Edge Student (`0.92 MB`, `0.16 ms` CPU latency)
 
 ---
@@ -141,7 +141,7 @@ $$\mathcal{L}_{KD} = (1 - \alpha)\,\text{CE}(z_s, y) + \alpha\,T^2\,\text{KL}\!\
 3. **Out-of-distribution smartphone HDR videos** (vertical `60 FPS` iPhone `.MOV` sharpening) differ statistically from YouTube `25 FPS` FF++ clips and benefit from wild smartphone UGC calibration.  
 4. **In-repo ONNX export scope:** `verimedia_edge_int8.onnx` quantizes the Multimodal Late-Fusion Head (`VeriMediaEdgeONNXWrapper`), while backbone feature extraction runs via `StudentVisualBackbone` in `VeriMediaEngine(use_onnx_edge=True)`.
 
-### Q25. Why aren't the `.pth` checkpoints uploaded to your GitHub repo (`goyaljatin870/verimedia`)?
+### Q25. Why aren't the `.pth` checkpoints uploaded to your GitHub repo (`goyaljatin870/PixelProof`)?
 **Answer:** Combined `.pth` checkpoints total ~**`560 MB`** (`ResNet-50 144.2 MB`, `Xception 133.9 MB`, `EfficientNetV2 124.5 MB`, etc.), exceeding GitHub's `100 MB` per-file limit. So `.gitignore` excludes heavy `.pth` files and raw media while keeping all source code, ONNX exports (`0.92 MB` INT8 + `3.54 MB` FP32), `.pkl` calibrators/stacker, reports, and `13/13` passing tests tracked cleanly—with automatic fallback to Standalone Forensic Mode if `.pth` files are absent.
 
 ---
