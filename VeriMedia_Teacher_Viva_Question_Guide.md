@@ -82,7 +82,7 @@
 ### Q14. What bugs did you discover and fix in Audio extraction and Verdict conflict logic?
 **Answer:** Two major real-world bugs were fixed:  
 1. **Audio filename collision & silent false spikes (`src/audio_branch.py`):** Different videos sharing stems like `006.mp4` overwrote each other's WAV cache—fixed by appending an 8-char `MD5` hash of the full resolved path, clearing stale `.wav` files, and checking `res.returncode == 0`. Furthermore, silent videos (`RMS < 1e-3`) had random quantization floor phase jitter mimicking a vocoder—now guarded to return `0.0`.  
-2. **Clickbait override (`src/pipeline.py`):** Previously, putting a sensational caption on a *deepfake* video could let Class 2 outvote visual tampering. Now, if the stacked visual committee reaches `p_fake_stack >= 0.70`, visual forgery cleanly overrides clickbait text so manipulated deepfakes cannot hide behind alarming headlines.
+2. **Clickbait override & pure-visual stacker decoupling (`src/pipeline.py`):** Previously, putting a sensational caption on a *deepfake* video could let Class 2 outvote visual tampering—while conversely, claim-shifted softmax residuals inflated `raw_p_fake` and fooled the binary stacker on cheapfakes. Now we evaluate a pure visual-audio (`empty_tokens`) pass for the binary stacker so real clips + deceptive text accurately score **Contextual Misinformation (`88.27%` clean / `84.94%` WhatsApp CRF 38, `6/6` agree)**, while strong visual tampering (`p_fake_stack >= 0.70`) still overrides clickbait text cleanly (`74.51%`, `4/6`).
 
 ---
 
@@ -119,7 +119,7 @@ $$\mathcal{L}_{KD} = (1 - \alpha)\,\text{CE}(z_s, y) + \alpha\,T^2\,\text{KL}\!\
 - `MSE(D_s, D_t)` forces the tiny student's visual-audio-text contradiction distances to mimic the large teacher.
 
 ### Q20. How did you shrink a 144.21 MB PyTorch model down to 0.92 MB?
-**Answer:** Two steps: (1) **Knowledge Distillation** into `MobileNetV3` (`3.54 MB` when fusion head is exported to FP32 ONNX Opset 18), followed by (2) **8-bit Dynamic Post-Training Quantization (`QUInt8`)** via `onnxruntime.quantization.quantize_dynamic` (`3.83x` shrink -> **`0.92 MB`**), achieving **`0.14 ms` mean CPU latency** (`0.15 ms` p95) and **`0.1 MB` active RAM delta** over 50 benchmark runs—crushing the `<= 45 MB`, `< 300 ms`, `< 180 MB` System Verification Matrix limits.
+**Answer:** Two steps: (1) **Knowledge Distillation** into `MobileNetV3` (`3.54 MB` when fusion head is exported to FP32 ONNX Opset 18), followed by (2) **8-bit Dynamic Post-Training Quantization (`QUInt8`)** via `onnxruntime.quantization.quantize_dynamic` (`3.83x` shrink -> **`0.92 MB`**), achieving **`0.14 ms` mean CPU latency** (`0.19 ms` p95) and **`0.46 MB` active RAM delta** over 50 benchmark runs—crushing the `<= 45 MB`, `< 300 ms`, `< 180 MB` System Verification Matrix limits.
 
 ### Q21. Why use Dynamic PTQ (`QUInt8`) instead of Static Quantization or QAT?
 **Answer:** For edge MLP / Transformer-style projection heads (`VeriMediaEdgeONNXWrapper`), weights dominate memory and matrices multiply activations dynamically at runtime without needing calibration histograms or fragile GPU QAT graphs—delivering a `3.83x` size reduction cleanly on `CPUExecutionProvider`. (Good future work is quantizing the full convolutional backbone cleanly too!)
@@ -157,6 +157,6 @@ $$\mathcal{L}_{KD} = (1 - \alpha)\,\text{CE}(z_s, y) + \alpha\,T^2\,\text{KL}\!\
 | **Best Single Backbone** | **`ResNet-50`: `0.9516` AUC** (`91.14%` raw acc); **`EfficientNetV2-S`: `0.9408` AUC** |
 | **Highest Stacker Weights** | `ResNet-50` (`3.7785`), `EfficientNetV2` (`3.1870`), `Xception` (`1.8467`) |
 | **Distilled Student Test AUC** | **`0.8935` ROC-AUC** (`82.84%` raw acc, `81.03%` balanced acc) |
-| **Edge INT8 Verification** | **`0.92 MB`** (`<= 45 MB`), **`0.14 ms` mean / `0.15 ms` p95** (`< 300 ms`), **`0.1 MB` RAM delta** (`< 180 MB`) |
+| **Edge INT8 Verification** | **`0.92 MB`** (`<= 45 MB`), **`0.14 ms` mean / `0.19 ms` p95** (`< 300 ms`), **`0.46 MB` RAM delta** (`< 180 MB`) |
 | **GPU & Runtime** | NVIDIA **RTX 4050 (`6 GB VRAM`, `sm_89`)**, PyTorch **`2.14.1+cu130`**, **`185.18 min`**, `6` epochs |
 | **Unit Tests** | **`13 / 13` PyTest cases PASS** across SRM, branches, splits & ONNX INT8 |

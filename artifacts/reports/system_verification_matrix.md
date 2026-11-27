@@ -5,7 +5,7 @@
 
 | Metric | Target Specification | Measured Value | Compliance |
 | :--- | :--- | :--- | :--- |
-| **Inference Latency** | `< 300.0 ms` | `0.13 ms` (p95: `0.15 ms`) | ✅ PASS |
+| **Inference Latency** | `< 300.0 ms` | `0.14 ms` (p95: `0.19 ms`) | ✅ PASS |
 | **Model Size** | `≤ 45.0 MB` | `0.92 MB` | ✅ PASS |
-| **Peak Active RAM Footprint** | `< 180.0 MB` | `0.1 MB` | ✅ PASS |
+| **Peak Active RAM Footprint** | `< 180.0 MB` | `0.46 MB` | ✅ PASS |
 

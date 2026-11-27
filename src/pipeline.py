@@ -301,6 +301,12 @@ class ForensicCommitteeEngine:
         t_t0 = time.perf_counter()
         t_f, text_metrics = self.nlp_extractor.process_text_claim(claim_text)
         text_tokens = self.nlp_extractor.model.simple_tokenize(claim_text or "").unsqueeze(0).to(self.device)
+        has_claim_text = bool(claim_text and len(str(claim_text).strip()) > 0)
+        empty_tokens = (
+            self.nlp_extractor.model.simple_tokenize("").unsqueeze(0).to(self.device)
+            if has_claim_text
+            else text_tokens
+        )
         t_extract_ms = (time.perf_counter() - t_t0) * 1000.0
 
         # Compute forensic cues from raw physical signals
@@ -338,7 +344,6 @@ class ForensicCommitteeEngine:
 
         a_cue = float(audio_metrics.get("vocoder_anomaly_score", 0.0))
         t_cue = float(text_metrics.get("sensationalism_score", 0.0))
-        has_claim_text = bool(claim_text and len(str(claim_text).strip()) > 0)
 
         # 4. Independent Committee Model Evaluations
         active_list = enabled_models or self.model_names
@@ -376,8 +381,20 @@ class ForensicCommitteeEngine:
 
             is_trained = self.checkpoint_statuses.get(m_name, {}).get("is_trained", False)
             with torch.no_grad():
-                logits, disc_dict = model(frames_tensor, wave_tensor, text_tokens)
+                v_f = model.visual_backbone(frames_tensor)
+                a_f = model.audio_backbone(wave_tensor)
+                t_f_mod = model.nlp_backbone(text_tokens)
+                logits, disc_dict = model.fusion_head(v_f, a_f, t_f_mod)
                 adj_logits = logits.clone()
+
+                if is_trained and has_claim_text:
+                    # Pure visual-audio conditional P(Fake) matching binary calibration & stacker training
+                    t_f_empty = model.nlp_backbone(empty_tokens)
+                    vis_logits, _ = model.fusion_head(v_f, a_f, t_f_empty)
+                    vis_probs = torch.softmax(vis_logits, dim=-1).squeeze(0).cpu().numpy()
+                    raw_p_fake_vis = float(vis_probs[1] / max(1e-8, vis_probs[0] + vis_probs[1]))
+                else:
+                    raw_p_fake_vis = None
 
                 if is_trained:
                     if (not self.strict_trained_only) and a_cue > 0.40:
@@ -400,7 +417,7 @@ class ForensicCommitteeEngine:
 
                 raw_probs = torch.softmax(adj_logits, dim=-1).squeeze(0).cpu().numpy()
 
-            raw_p_fake = float(raw_probs[1] / max(1e-8, raw_probs[0] + raw_probs[1]))
+            raw_p_fake = raw_p_fake_vis if raw_p_fake_vis is not None else float(raw_probs[1] / max(1e-8, raw_probs[0] + raw_probs[1]))
             raw_fake_probs_by_model[m_name] = raw_p_fake
 
             # Apply per-model .pkl Platt calibrator & optimal threshold when loaded
