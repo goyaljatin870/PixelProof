@@ -10,6 +10,13 @@ import subprocess
 import time
 from pathlib import Path
 
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+
 # Ensure package root is in sys.path
 _pkg_root = Path(__file__).resolve().parent
 if str(_pkg_root) not in sys.path:
@@ -63,7 +70,12 @@ def run_full_end_to_end_demo():
     print(f" - Active RAM: {m['active_memory_footprint']['active_delta_mb']} MB (Target < 180 MB: {'PASS ✅' if m['active_memory_footprint']['compliant'] else 'FAIL ❌'})")
 
     print("\n[STEP 4/5] Testing Forensic Inference on Real Video...")
-    engine = VeriMediaEngine(model_name="committee")
+    from src.pipeline import COMMITTEE_MODEL_METADATA
+    all_pth_present = all(
+        (config.checkpoints_dir / f"verimedia_{m}.pth").exists()
+        for m in COMMITTEE_MODEL_METADATA.keys()
+    )
+    engine = VeriMediaEngine(model_name="committee", strict_trained_only=all_pth_present)
     sample_real = str(config.dataset_root / "original" / "006.mp4")
     if not os.path.exists(sample_real):
         sample_real = str(config.dataset_root / "original" / "000.mp4")

@@ -10,6 +10,13 @@ import argparse
 import json
 from pathlib import Path
 
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        try:
+            _stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
+
 # Ensure package root is in sys.path
 _pkg_root = Path(__file__).resolve().parent
 if str(_pkg_root) not in sys.path:
@@ -69,16 +76,44 @@ def cmd_benchmark(args):
 
 
 def cmd_predict(args):
+    use_edge = getattr(args, "edge", False)
     use_committee = getattr(args, "committee", False)
+    if use_edge:
+        print(f"[*] Analyzing Media Payload via INT8 Edge ONNX Student: {args.video_path}")
+        if args.claim:
+            print(f"[*] Accompanying Claim / Caption: \"{args.claim}\"")
+        if args.degrade:
+            print("[*] Pre-processing with WhatsApp H.264 CRF 38 degradation simulator...")
+
+        engine = VeriMediaEngine(use_onnx_edge=True)
+        result = engine.verify_media(
+            video_path=args.video_path,
+            claim_text=args.claim,
+            simulate_whatsapp_degradation=args.degrade
+        )
+        print("\n" + "="*65)
+        print("VERIMEDIA INT8 EDGE ONNX VERIFICATION REPORT")
+        print("="*65)
+        print(f"VERDICT: {result['verdict'].upper()} (Confidence: {result['confidence']}%)")
+        for k, v in result["probabilities"].items():
+            print(f"  - {k}: {v * 100:.2f}%")
+        print(f"Latency: {result['performance_timings']['total_inference_ms']} ms")
+        print("="*65 + "\n")
+        return
+
     if use_committee:
-        from src.pipeline import ForensicCommitteeEngine
+        from src.pipeline import ForensicCommitteeEngine, COMMITTEE_MODEL_METADATA
         print(f"[*] Analyzing Media Payload across Forensic Committee Ensemble: {args.video_path}")
         if args.claim:
             print(f"[*] Accompanying Claim / Caption: \"{args.claim}\"")
         if args.degrade:
             print("[*] Pre-processing with WhatsApp H.264 CRF 38 degradation simulator...")
 
-        engine = ForensicCommitteeEngine()
+        all_pth_present = all(
+            (config.checkpoints_dir / f"verimedia_{m}.pth").exists()
+            for m in COMMITTEE_MODEL_METADATA.keys()
+        )
+        engine = ForensicCommitteeEngine(strict_trained_only=all_pth_present)
         result = engine.verify_media_committee(
             video_path=args.video_path,
             claim_text=args.claim,
@@ -174,6 +209,7 @@ def main():
     p_predict.add_argument("--claim", type=str, default=None, help="Accompanying regional claim / caption text")
     p_predict.add_argument("--degrade", action="store_true", help="Simulate WhatsApp degradation before verification")
     p_predict.add_argument("--committee", action="store_true", help="Run multi-model forensic committee ensemble (Option A)")
+    p_predict.add_argument("--edge", action="store_true", help="Run distilled Student + INT8 ONNX Edge runtime")
     p_predict.add_argument(
         "--model",
         type=str,

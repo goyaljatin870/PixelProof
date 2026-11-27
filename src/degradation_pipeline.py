@@ -5,6 +5,7 @@ Simulates aggressive messaging platform compression using FFmpeg:
 """
 
 import os
+import hashlib
 import subprocess
 import logging
 from pathlib import Path
@@ -70,7 +71,8 @@ def degrade_video_whatsapp(
     if output_path is None:
         config.degraded_dir.mkdir(parents=True, exist_ok=True)
         stem = input_file.stem
-        output_file = config.degraded_dir / f"{stem}_degraded_crf{crf}.mp4"
+        path_tag = hashlib.md5(str(input_file.resolve()).encode("utf-8")).hexdigest()[:6]
+        output_file = config.degraded_dir / f"{stem}_{path_tag}_degraded_crf{crf}.mp4"
     else:
         output_file = Path(output_path)
         output_file.parent.mkdir(parents=True, exist_ok=True)
@@ -78,8 +80,11 @@ def degrade_video_whatsapp(
     ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
     has_audio = check_audio_stream_exists(str(input_file), ffmpeg_exe)
 
-    # Video filter: scale to max 640:480 while preserving aspect ratio, throttled to 15 fps
-    vf = f"scale={max_width}:{max_height}:force_original_aspect_ratio=decrease,fps={target_fps}"
+    # Video filter: scale to max width:height preserving aspect ratio, ensure even dimensions for yuv420p, cap fps
+    vf = (
+        f"scale={max_width}:{max_height}:force_original_aspect_ratio=decrease,"
+        f"scale=trunc(iw/2)*2:trunc(ih/2)*2,fps={target_fps}"
+    )
 
     cmd = [
         ffmpeg_exe,

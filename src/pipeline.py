@@ -582,12 +582,12 @@ class VeriMediaEngine:
     Backwards-compatible wrapper providing both single-model inference
     and full Multi-Model Committee Consensus.
     """
-    def __init__(self, model_name: str = "mobilenet_v3", use_onnx_edge: bool = False, device: Optional[str] = None):
+    def __init__(self, model_name: str = "mobilenet_v3", use_onnx_edge: bool = False, device: Optional[str] = None, strict_trained_only: bool = False):
         self.device = device or config.device
         self.use_onnx_edge = use_onnx_edge
         self.model_name = model_name.lower()
         selected = None if self.model_name == "committee" else [self.model_name]
-        self.committee_engine = ForensicCommitteeEngine(model_names=selected, device=self.device)
+        self.committee_engine = ForensicCommitteeEngine(model_names=selected, device=self.device, strict_trained_only=strict_trained_only)
         self._edge_student = None
         self._edge_ort_session = None
 

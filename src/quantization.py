@@ -45,6 +45,9 @@ def export_student_to_onnx(
 
     if student_model is None:
         student_model = VeriMediaStudentModel()
+        ckpt = config.checkpoints_dir / "verimedia_student_best.pth"
+        if ckpt.exists():
+            student_model.load_state_dict(torch.load(str(ckpt), map_location="cpu"))
 
     student_model.eval()
     
@@ -91,7 +94,11 @@ def quantize_onnx_to_int8(
     
     if input_fp32_path is None:
         input_fp32_path = str(config.onnx_dir / "verimedia_student_fp32.onnx")
-        if not os.path.exists(input_fp32_path):
+        ckpt = config.checkpoints_dir / "verimedia_student_best.pth"
+        needs_export = (not os.path.exists(input_fp32_path)) or (
+            ckpt.exists() and ckpt.stat().st_mtime > os.path.getmtime(input_fp32_path)
+        )
+        if needs_export:
             export_student_to_onnx(output_fp32_path=input_fp32_path)
 
     if output_int8_path is None:

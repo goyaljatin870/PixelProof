@@ -843,10 +843,13 @@ def render_scanner_tab(engine: ForensicCommitteeEngine, samples: Dict[str, list]
             if uploaded_file is not None:
                 upload_dir = config.processed_dir
                 upload_dir.mkdir(parents=True, exist_ok=True)
-                dest = upload_dir / f"upload_{uploaded_file.name}"
-                with open(dest, "wb") as f:
-                    f.write(uploaded_file.read())
-                active_video_path = str(dest)
+                file_bytes = uploaded_file.getvalue()
+                dest = upload_dir / f"upload_{Path(uploaded_file.name).name}"
+                if file_bytes and (not dest.exists() or dest.stat().st_size != len(file_bytes)):
+                    with open(dest, "wb") as f:
+                        f.write(file_bytes)
+                if dest.exists() and dest.stat().st_size > 0:
+                    active_video_path = str(dest)
 
         # Accompanying Narrative Context
         st.markdown("#### 2. Accompanying Narrative Claim")
@@ -1295,7 +1298,7 @@ def render_scanner_tab(engine: ForensicCommitteeEngine, samples: Dict[str, list]
                         <div>
                             <p style="margin: 0.2rem 0;"><strong>Media Payload:</strong> {Path(active_video_path).name}</p>
                             <p style="margin: 0.2rem 0;"><strong>Consensus Agreement:</strong> {cons['agreement_count']}/{cons['total_models']} Specialists ({cons['agreement_pct']}%)</p>
-                            <p style="margin: 0.2rem 0;"><strong>Dissenting Architectures:</strong> {', '.join(cons.get('dissenting_specialists', ['None']))}</p>
+                            <p style="margin: 0.2rem 0;"><strong>Dissenting Architectures:</strong> {', '.join(cons.get('dissenting_specialists') or ['None'])}</p>
                         </div>
                         <div>
                             <p style="margin: 0.2rem 0;"><strong>Timestamp:</strong> {time.strftime('%Y-%m-%d %H:%M:%S UTC')}</p>
@@ -1426,6 +1429,7 @@ def render_evaluation_tab():
         st.warning("Training report not found (`artifacts/reports/zoo_training_report.pkl`). Run `python src/train_zoo.py` first.")
         return
 
+    n_epochs = int(rep.get("epochs", 6))
     models_dict = rep.get("models", {})
     ens = rep.get("committee_ensemble", {})
     student = rep.get("distilled_student", {})
@@ -1438,11 +1442,14 @@ def render_evaluation_tab():
     k1.metric("Stacked Committee (.pkl) AUC", f"{stacked_m.get('roc_auc', 0):.4f}")
     k2.metric("Stacked Committee Acc", f"{stacked_m.get('accuracy_pct', 0):.2f}%")
     k3.metric("Stacked Balanced Acc", f"{stacked_m.get('balanced_accuracy_pct', 0):.2f}%")
-    eff_auc = models_dict.get("efficientnet_v2", {}).get("test_metrics_raw", {}).get("roc_auc", 0)
-    k4.metric("Best Single Backbone AUC", f"{eff_auc:.4f}")
+    best_single_auc = max(
+        (m.get("test_metrics_raw", {}).get("roc_auc", 0.0) for m in models_dict.values()),
+        default=0.0,
+    )
+    k4.metric("Best Single Backbone AUC", f"{best_single_auc:.4f}")
     k5.metric("Distilled Student AUC", f"{student_m.get('roc_auc', 0):.4f}")
 
-    st.markdown("#### Complete Model Comparison (`1,092` Unseen Test Videos)")
+    st.markdown("#### Complete Model Comparison (`1,092` Test Split / `1,084` Scorable Clips)")
     rows = []
     selector_map: Dict[str, Dict[str, Any]] = {}
 
@@ -1507,7 +1514,7 @@ def render_evaluation_tab():
             "Fake Recall (%)": float(student_m["fake_recall_pct"]),
             "F1 Score": float(student_m["f1"]),
             "Ctx Class-2 (%)": "N/A",
-            "Train Time": "8 ep KD",
+            "Train Time": f"{n_epochs} ep KD",
         })
 
     st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True)
@@ -1559,7 +1566,7 @@ def render_evaluation_tab():
             )
             st.plotly_chart(fig_cat_acc, width="stretch")
 
-    st.markdown("#### 8-Epoch Training Convergence Curves (Validation ROC-AUC & Training Loss)")
+    st.markdown(f"#### {n_epochs}-Epoch Training Convergence Curves (Validation ROC-AUC & Training Loss)")
     fig_curves = go.Figure()
     for m_name, m_data in models_dict.items():
         hist = m_data.get("history", [])
